@@ -13,7 +13,9 @@ public class GUI {
 
     public static void startGame() {
         ArrayList<Player> players = new ArrayList<Player>();
+
         players.add(new Player("WallE", "ROBOT", 'X'));
+
         state = GameController.startGame("something", 2, 5, players);
         new InPlayFrame();
     }
