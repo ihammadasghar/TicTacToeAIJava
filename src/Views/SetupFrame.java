@@ -1,22 +1,24 @@
 package Views;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class SetupFrame extends JFrame {
     // Constructor
     public SetupFrame() {
-        // Setup the frame
         super("Game Setup");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationByPlatform(true);
-        this.setSize(GUI.FRAME_WIDTH, GUI.FRAME_HEIGHT);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel main = new JPanel(new GridLayout(2, 2));
+        main.setBorder(GUI.blackline);
 
-        // Add panels to the frame
-        this.add(new PlayersSetupPanel());
+        JPanel panel = new GameOptionsPanel();
+        panel.setSize((int) GUI.FRAME_WIDTH / 4, (int) GUI.FRAME_HEIGHT / 4);
+        main.add(panel);
 
         // Make frame visible
-        this.setVisible(true);
-        this.pack();
+        add(main);
+        setSize(GUI.FRAME_WIDTH, GUI.FRAME_HEIGHT);
+        setVisible(true);
     }
 }
 
