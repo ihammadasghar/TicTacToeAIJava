@@ -1,22 +1,25 @@
 package Views;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class InPlayFrame extends JFrame {
     // Constructor
     public InPlayFrame() {
         // Setup the frame
         super("In play");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationByPlatform(true);
-        this.setSize(GUI.FRAME_WIDTH, GUI.FRAME_HEIGHT);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel main = new JPanel(new GridLayout(1, 2));
+        main.setBorder(GUI.blackline);
 
         // Add panels to the frame
-        this.add(new GridPanel(GUI.state.gridSize));
+        main.add(new GridPanel(GUI.state.gridSize));
 
         // Make frame visible
-        this.setVisible(true);
-        this.pack();
+        add(main);
+        setSize(GUI.FRAME_WIDTH, GUI.FRAME_HEIGHT);
+        setVisible(true);
     }
 }
 
