@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 public class GridPanel extends JPanel implements ActionListener {
     public GridPanel(int n) {
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-        Font fontSym = new Font("Dialog", Font.BOLD, 50);
-        Font fontSides = new Font("Monospace", Font.PLAIN, 20);
+        Font fontSym = new Font("Dialog", Font.BOLD, 25);
+        Font fontSides = new Font("Monospace", Font.PLAIN, 30);
 
         setLayout(new GridLayout(0, (n + 2), 10, 10));
 
@@ -34,7 +34,7 @@ public class GridPanel extends JPanel implements ActionListener {
             idxLeft.setFont(fontSides);
             add(idxLeft);
             for (int j = 0; j < n; j++) {
-                JButton btn = new JButton("");
+                JButton btn = new JButton("  ");
                 btn.setFont(fontSym);
                 btn.addActionListener(this);
                 add(btn);
