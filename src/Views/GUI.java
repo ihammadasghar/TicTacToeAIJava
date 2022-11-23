@@ -10,8 +10,8 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class GUI {
-    public static final int FRAME_HEIGHT = 400;
-    public static final int FRAME_WIDTH = 400;
+    public static final int FRAME_HEIGHT = 800;
+    public static final int FRAME_WIDTH = 800;
     public static Game state;
     public static Border blackline = BorderFactory.createLineBorder(Color.black);
 
@@ -19,8 +19,9 @@ public class GUI {
         ArrayList<Player> players = new ArrayList<Player>();
 
         players.add(new Player("WallE", "ROBOT", 'X'));
+        players.add(new Player("Pablo", "ROBOT", 'O'));
 
         state = GameController.startGame("something", 2, 5, players);
-        new SetupFrame();
+        new InPlayFrame();
     }
 }
