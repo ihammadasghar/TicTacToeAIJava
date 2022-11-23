@@ -34,7 +34,7 @@ public class GridPanel extends JPanel implements ActionListener {
             idxLeft.setFont(fontSides);
             add(idxLeft);
             for (int j = 0; j < n; j++) {
-                JButton btn = new JButton("" + i);
+                JButton btn = new JButton("");
                 btn.setFont(fontSym);
                 btn.addActionListener(this);
                 add(btn);
