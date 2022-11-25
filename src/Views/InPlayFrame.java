@@ -19,7 +19,6 @@ public class InPlayFrame extends JFrame {
         gameDetailsPanel.setLayout(new BoxLayout(gameDetailsPanel, BoxLayout.Y_AXIS));
 
         JPanel scorePanel = new ScorePanel();
-        JPanel blankPanel = new JPanel();
         JPanel cancelPanel = new CancelPanel();
 
         gameDetailsPanel.add(scorePanel);

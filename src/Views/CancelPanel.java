@@ -12,8 +12,6 @@ public class CancelPanel extends JPanel{
         cancelBtn.setForeground(Color.red);
         cancelBtn.addActionListener(new CloseListener());
         this.add(cancelBtn);
-        JLabel def = new JLabel("(the current game)",SwingConstants.CENTER);
-        this.add(def);
     }
 
     private class CloseListener implements ActionListener{
