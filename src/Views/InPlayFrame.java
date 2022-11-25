@@ -20,11 +20,9 @@ public class InPlayFrame extends JFrame {
 
         JPanel scorePanel = new ScorePanel();
         JPanel cancelPanel = new CancelPanel();
-        JPanel sizePanel = new SizePanel();
 
         gameDetailsPanel.add(scorePanel);
         gameDetailsPanel.add(cancelPanel);
-        gameDetailsPanel.add(sizePanel);
 
         // Add panels to the frame
         c.ipady = (int) (GUI.FRAME_HEIGHT / 3);

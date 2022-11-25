@@ -23,5 +23,6 @@ public class GUI {
 
         state = GameController.startGame("something", 2, 5, players);
         new InPlayFrame();
+        new SetupFrame();
     }
 }
