@@ -63,6 +63,7 @@ public class GridPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton clickedBtn = (JButton) e.getSource();
         clickedBtn.setText(String.valueOf(GUI.state.currentPlayer.symbol));
+        clickedBtn.setEnabled(false);
     }
 
 }

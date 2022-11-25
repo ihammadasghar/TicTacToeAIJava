@@ -9,6 +9,7 @@ public class SizePanel extends JPanel{
     int gridSize = 3;
     int winNum = 7;
     Font display = new Font("Monospace", Font.PLAIN, 40);
+
     JPanel sizeOptions = new JPanel();
     JPanel Grid = new JPanel();
     JPanel gridSetUp = new JPanel();
@@ -20,11 +21,11 @@ public class SizePanel extends JPanel{
 
     public SizePanel() {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+        this.setBorder(GUI.blackline);
         sizeTitle.setFont(display);
         this.add(sizeTitle);
         this.add(sizeOptions);
         sizeOptions.setLayout(new BoxLayout(sizeOptions,BoxLayout.X_AXIS));
-        sizeOptions.setBorder(GUI.blackline);
         gridValue.setFont(display);
         winValue.setFont(display);
         JLabel winTitle = new JLabel("Win");
@@ -35,6 +36,7 @@ public class SizePanel extends JPanel{
 
         Grid.setLayout(new BoxLayout(Grid,BoxLayout.Y_AXIS));
         Grid.add(gridTitle);
+        gridSetUp.setBorder(GUI.blackline);
         gridSetUp.setLayout(new BoxLayout(gridSetUp,BoxLayout.X_AXIS));
         gridSetUp.add(gridSlider);
         gridSetUp.add(gridValue);
@@ -43,23 +45,13 @@ public class SizePanel extends JPanel{
 
         Win.setLayout(new BoxLayout(Win,BoxLayout.Y_AXIS));
         Win.add(winTitle);
-        winSetUp.setLayout(new BoxLayout(winSetUp,BoxLayout.X_AXIS));
-        winSetUp.add(winSlider);
-        winSetUp.add(winValue);
-        Win.add(winSetUp);
-        sizeOptions.add(Win);
-
-        /*
-        Win.setLayout(new BoxLayout(Win,BoxLayout.Y_AXIS));
-        Win.add(winTitle);
-        this.add(Win);
         winSetUp.setBorder(GUI.blackline);
         winSetUp.setLayout(new BoxLayout(winSetUp,BoxLayout.X_AXIS));
         winSetUp.add(winSlider);
         winSetUp.add(winValue);
         Win.add(winSetUp);
         sizeOptions.add(Win);
-         */
+
         gridSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
@@ -74,8 +66,8 @@ public class SizePanel extends JPanel{
                 else{gridSize=3; gridValue.setText(""+gridSize+"x"+gridSize);}
             }
         });
-        Win.add(winSlider);
-        Win.add(winValue);
+        winSetUp.add(winSlider);
+        winSetUp.add(winValue);
         winSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
