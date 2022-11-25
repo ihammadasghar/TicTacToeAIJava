@@ -43,6 +43,7 @@ public class SizePanel extends JPanel{
         Grid.add(gridSetUp);
         sizeOptions.add(Grid);
 
+        //
         Win.setLayout(new BoxLayout(Win,BoxLayout.Y_AXIS));
         Win.add(winTitle);
         winSetUp.setBorder(GUI.blackline);
