@@ -6,7 +6,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class SizePanel extends JPanel{
-    int gridSize = 3;
+    int gridSize = (GUI.state.gridSize);
     int winNum = 7;
     Font display = new Font("Monospace", Font.PLAIN, 40);
 
@@ -15,23 +15,22 @@ public class SizePanel extends JPanel{
     JPanel gridSetUp = new JPanel();
     JPanel winSetUp = new JPanel();
     JPanel Win = new JPanel();
-    JLabel sizeTitle = new JLabel("Size");
+    JLabel sizeTitle = new JLabel("Size",SwingConstants.CENTER);
     JLabel gridValue = new JLabel("6x6");
     JLabel winValue = new JLabel(""+winNum);
 
     public SizePanel() {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-        this.setBorder(GUI.blackline);
         sizeTitle.setFont(display);
         this.add(sizeTitle);
         this.add(sizeOptions);
         sizeOptions.setLayout(new BoxLayout(sizeOptions,BoxLayout.X_AXIS));
         gridValue.setFont(display);
         winValue.setFont(display);
-        JLabel winTitle = new JLabel("Win");
+        JLabel winTitle = new JLabel("Win",SwingConstants.CENTER);
         JSlider winSlider = new JSlider(JSlider.VERTICAL);
 
-        JLabel gridTitle = new JLabel("Grid");
+        JLabel gridTitle = new JLabel("Grid",SwingConstants.CENTER);
         JSlider gridSlider = new JSlider(JSlider.VERTICAL);
 
         Grid.setLayout(new BoxLayout(Grid,BoxLayout.Y_AXIS));
@@ -57,28 +56,24 @@ public class SizePanel extends JPanel{
             @Override
             public void stateChanged(ChangeEvent e) {
                 JSlider state = (JSlider) e.getSource();
-                if (state.getValue() <= 0){gridSize=10; gridValue.setText(""+gridSize+"x"+gridSize);}
-                else if(state.getValue() <= 14){gridSize=9; gridValue.setText(""+gridSize+"x"+gridSize);}
-                else if(state.getValue() <= 28){gridSize=8; gridValue.setText(""+gridSize+"x"+gridSize);}
-                else if(state.getValue() <= 42){gridSize=7; gridValue.setText(""+gridSize+"x"+gridSize);}
-                else if(state.getValue() <= 56){gridSize=6; gridValue.setText(""+gridSize+"x"+gridSize);}
-                else if(state.getValue() <= 70){gridSize=5; gridValue.setText(""+gridSize+"x"+gridSize);}
-                else if(state.getValue() <= 84){gridSize=4; gridValue.setText(""+gridSize+"x"+gridSize);}
-                else{gridSize=3; gridValue.setText(""+gridSize+"x"+gridSize);}
-            }
-        });
+                gridSize = (int) ((state.getValue()) / 14)+3;
+                if (winNum>gridSize) {
+                    winNum=gridSize;
+                    winValue.setText(""+winNum);
+                }
+                GUI.state.gridSize = gridSize;
+                gridValue.setText(gridSize + "x" + gridSize);
+            }});
         winSetUp.add(winSlider);
         winSetUp.add(winValue);
         winSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
                 JSlider state = (JSlider) e.getSource();
-                if (state.getValue() <= 0){winNum=10; winValue.setText(""+winNum);}
-                else if(state.getValue() <= 20){winNum=9; winValue.setText(""+winNum);}
-                else if(state.getValue() <= 40){winNum=8; winValue.setText(""+winNum);}
-                else if(state.getValue() <= 60){winNum=7; winValue.setText(""+winNum);}
-                else if(state.getValue() <= 80){winNum=6; winValue.setText(""+winNum);}
-                else{winNum=5; winValue.setText(""+winNum);}
+                winNum = (int)(state.getValue()/(100/gridSize));
+                if(winNum<3){
+                    winNum=3;}
+                winValue.setText("" + winNum);
             }
         });
     }
