@@ -2,6 +2,7 @@ package Views;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
 
 public class SetupFrame extends JFrame {
     // Constructor
@@ -13,9 +14,11 @@ public class SetupFrame extends JFrame {
 
         JPanel panel = new GameOptionsPanel();
         JPanel sizePanel = new SizePanel();
+        JPanel startPanel = new StartPanel();
         panel.setSize((int) GUI.FRAME_WIDTH / 4, (int) GUI.FRAME_HEIGHT / 4);
         main.add(panel);
         main.add(sizePanel);
+        main.add(startPanel);
 
         // Make frame visible
         add(main);

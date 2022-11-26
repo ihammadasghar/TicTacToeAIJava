@@ -15,14 +15,15 @@ public class GUI {
     public static Game state;
     public static Border blackline = BorderFactory.createLineBorder(Color.black);
 
-    public static void startGame() {
+
+    public static void startGame(){
+
         ArrayList<Player> players = new ArrayList<Player>();
 
         players.add(new Player("WallE", "ROBOT", 'X'));
         players.add(new Player("Pablo", "ROBOT", 'O'));
 
         state = GameController.startGame("something", 2, 5, players);
-        new InPlayFrame();
         new SetupFrame();
     }
 }
