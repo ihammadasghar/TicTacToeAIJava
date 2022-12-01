@@ -1,6 +1,7 @@
 package Views;
 
 import Controllers.GameController;
+import Controllers.PlayerController;
 import Models.Game;
 import Models.Player;
 
@@ -14,16 +15,19 @@ public class GUI {
     public static final int FRAME_WIDTH = 800;
     public static Game state;
     public static Border blackline = BorderFactory.createLineBorder(Color.black);
+    public static JFrame setupFrame;
+    public static JFrame inPlayFrame;
 
+    public static void startGUI() {
+        setupFrame = new SetupFrame();
+    }
 
-    public static void startGame(){
+    public static void startGame() {
+        setupFrame.dispose();
 
-        ArrayList<Player> players = new ArrayList<Player>();
+        ArrayList<Player> players = PlayerController.getPlayerList(new PlayersSetupPanel());
+        state = GameController.getGameState("something", 2, 5, players);
 
-        players.add(new Player("WallE", "ROBOT", 'X'));
-        players.add(new Player("Pablo", "ROBOT", 'O'));
-
-        state = GameController.startGame("something", 2, 5, players);
-        new SetupFrame();
+        inPlayFrame = new InPlayFrame();
     }
 }
