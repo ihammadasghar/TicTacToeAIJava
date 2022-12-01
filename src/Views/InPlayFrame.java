@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class InPlayFrame extends JFrame {
+    public ScorePanel scorePanel;
+    public CancelPanel cancelPanel;
+    public GridPanel gridPanel;
+
     // Constructor
     public InPlayFrame() {
         // Setup the frame
@@ -18,8 +22,8 @@ public class InPlayFrame extends JFrame {
         JPanel gameDetailsPanel = new JPanel();
         gameDetailsPanel.setLayout(new BoxLayout(gameDetailsPanel, BoxLayout.Y_AXIS));
 
-        JPanel scorePanel = new ScorePanel();
-        JPanel cancelPanel = new CancelPanel();
+        scorePanel = new ScorePanel();
+        cancelPanel = new CancelPanel();
 
         gameDetailsPanel.add(scorePanel);
         gameDetailsPanel.add(cancelPanel);
@@ -30,7 +34,8 @@ public class InPlayFrame extends JFrame {
         c.gridwidth = 3;
         c.gridx = 0;
         c.gridy = 0;
-        main.add(new GridPanel(GUI.state.gridSize), c);
+        gridPanel = new GridPanel(GUI.state.gridSize);
+        main.add(gridPanel, c);
 
         c.ipady = 0;
         c.gridwidth = 1;
