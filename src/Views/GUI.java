@@ -15,8 +15,8 @@ public class GUI {
     public static final int FRAME_WIDTH = 800;
     public static Game state;
     public static Border blackline = BorderFactory.createLineBorder(Color.black);
-    public static JFrame setupFrame;
-    public static JFrame inPlayFrame;
+    public static SetupFrame setupFrame;
+    public static InPlayFrame inPlayFrame;
 
     public static void startGUI() {
         setupFrame = new SetupFrame();

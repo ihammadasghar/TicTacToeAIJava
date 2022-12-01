@@ -6,24 +6,25 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class SizePanel extends JPanel {
-    int gridSize = 3;
-    int winNum = 7;
-    Font display = new Font("Monospace", Font.PLAIN, 40);
-
-    JPanel sizeOptions = new JPanel();
-    JPanel Grid = new JPanel();
-    JPanel gridSetUp = new JPanel();
-    JPanel winSetUp = new JPanel();
-    JPanel Win = new JPanel();
-    JLabel sizeTitle = new JLabel("Size", SwingConstants.CENTER);
-    JLabel gridValue = new JLabel("6x6");
-    JLabel winValue = new JLabel("" + winNum);
+    public int gridSize = 3;
+    public int winNum = 7;
 
     public SizePanel() {
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        Font display = new Font("Monospace", Font.PLAIN, 40);
+
+        JPanel sizeOptions = new JPanel();
+        JPanel Grid = new JPanel();
+        JPanel gridSetUp = new JPanel();
+        JPanel winSetUp = new JPanel();
+        JPanel Win = new JPanel();
+        JLabel sizeTitle = new JLabel("Size", SwingConstants.CENTER);
+        JLabel gridValue = new JLabel("6x6");
+        JLabel winValue = new JLabel("" + winNum);
+
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         sizeTitle.setFont(display);
-        this.add(sizeTitle);
-        this.add(sizeOptions);
+        add(sizeTitle);
+        add(sizeOptions);
         sizeOptions.setLayout(new BoxLayout(sizeOptions, BoxLayout.X_AXIS));
         gridValue.setFont(display);
         winValue.setFont(display);
@@ -41,8 +42,7 @@ public class SizePanel extends JPanel {
         gridSetUp.add(gridValue);
         Grid.add(gridSetUp);
         sizeOptions.add(Grid);
-
-        //
+        
         Win.setLayout(new BoxLayout(Win, BoxLayout.Y_AXIS));
         Win.add(winTitle);
         winSetUp.setBorder(GUI.blackline);

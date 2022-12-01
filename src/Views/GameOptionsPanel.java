@@ -6,8 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GameOptionsPanel extends JPanel implements ActionListener {
-    ButtonGroup optionBtns;
-    Checkbox c1, c2, c3;
+    public Checkbox c1, c2, c3;
 
     public GameOptionsPanel() {
         super();
