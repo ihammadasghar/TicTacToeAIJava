@@ -5,8 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StartPanel extends JPanel implements ActionListener{
-    Font start = new Font("Dialog",Font.BOLD,30);
+public class StartPanel extends JPanel implements ActionListener {
+    Font start = new Font("Dialog", Font.BOLD, 30);
+
     public StartPanel() {
         JButton startBtn = new JButton("Start");
         startBtn.setFont(start);
@@ -15,9 +16,10 @@ public class StartPanel extends JPanel implements ActionListener{
         startBtn.setForeground(Color.blue);
         this.add(startBtn);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        new InPlayFrame();
+        GUI.startGame();
     }
 
 }
