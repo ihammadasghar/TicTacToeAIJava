@@ -17,6 +17,7 @@ public class CancelPanel extends JPanel{
     private class CloseListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
+
             GUI.endGame();
         }
     }
