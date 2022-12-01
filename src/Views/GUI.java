@@ -30,4 +30,9 @@ public class GUI {
 
         inPlayFrame = new InPlayFrame();
     }
+
+    public static void endGame(){
+        inPlayFrame.dispose();
+        startGUI();
+    }
 }
