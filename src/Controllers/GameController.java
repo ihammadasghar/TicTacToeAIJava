@@ -9,4 +9,6 @@ public class GameController {
     public static Game getGameState(String type, int win, int gridSize, ArrayList<Player> players) {
         return new Game(type, win, gridSize, players);
     }
+    public static void updateScore(){}
+    public static void changeTurn(){}
 }
