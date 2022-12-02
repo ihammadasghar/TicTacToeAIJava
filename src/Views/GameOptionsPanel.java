@@ -4,12 +4,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class GameOptionsPanel extends JPanel implements ActionListener {
     public Checkbox c1, c2, c3;
 
     public GameOptionsPanel() {
         super();
+/*
+        JRadioButton normal = new JRadioButton("Normal");
+        JRadioButton misere = new JRadioButton("Misère");
+        JRadioButton randomTurn = new JRadioButton("Random Turn");
+
+        normal.addActionListener(this);
+        misere.addActionListener(this);
+        randomTurn.addActionListener(this);
+
+        optionBtns.add(normal);
+        optionBtns.add(misere);
+        optionBtns.add(randomTurn);
+*/
+
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         JLabel label = new JLabel("Game Options", JLabel.CENTER);
@@ -31,6 +46,8 @@ public class GameOptionsPanel extends JPanel implements ActionListener {
         options.add(c3);
 
         add(options);
+
+
 
     }
 

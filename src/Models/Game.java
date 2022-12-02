@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Game {
     public String type;
+
+    public Grid grid = new Grid();
     public int gridSize;
     public int win;
     public ArrayList<Player> players;
@@ -15,6 +17,9 @@ public class Game {
         this.gridSize = gridSize;
         this.players = players;
         currentPlayer = players.get(0);
+    }
+    public  boolean isGameOver(){
+        return true;
     }
 
 }
