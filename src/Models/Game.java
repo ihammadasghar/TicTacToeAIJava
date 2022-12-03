@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Game {
     public String type;
 
-    public Grid grid = new Grid();
     public int gridSize;
     public int win;
     public ArrayList<Player> players;

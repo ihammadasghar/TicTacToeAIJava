@@ -3,6 +3,7 @@ package Views;
 import Controllers.GameController;
 import Controllers.PlayerController;
 import Models.Game;
+import Models.Grid;
 import Models.Player;
 
 import javax.swing.*;
@@ -26,7 +27,7 @@ public class GUI {
         setupFrame.dispose();
 
         ArrayList<Player> players = PlayerController.getPlayerList(new PlayersSetupPanel());
-        state = GameController.getGameState("something", 2, 5, players);
+        state = GameController.getGameState("something", 2, Grid.gridSize, players);
 
         inPlayFrame = new InPlayFrame();
     }
