@@ -7,7 +7,6 @@ import java.awt.*;
 
 public class PlayersSetupPanel extends JPanel {
     public int numOfPlayers = 3;
-    public JSpinner p1TypeSpinner, p2TypeSpinner, p3TypeSpinner, p4TypeSpinner;
 
     public PlayersSetupPanel() {
         Font display = new Font("Monospace", Font.PLAIN, 40);
@@ -40,24 +39,21 @@ public class PlayersSetupPanel extends JPanel {
         mainPanel.add(Grid);
 
         String playerTypes[] = {"Human", "AI"};
-        SpinnerModel model1 = new SpinnerListModel(playerTypes);
-        SpinnerModel model2 = new SpinnerListModel(playerTypes);
-        SpinnerModel model3 = new SpinnerListModel(playerTypes);
-        SpinnerModel model4 = new SpinnerListModel(playerTypes);
-        p1TypeSpinner = new JSpinner(model1);
-        p2TypeSpinner = new JSpinner(model2);
-        p3TypeSpinner = new JSpinner(model3);
-        p4TypeSpinner = new JSpinner(model4);
 
+        JComboBox model1 = new JComboBox(playerTypes);
+        JComboBox model2 = new JComboBox(playerTypes);
+        JComboBox model3 = new JComboBox(playerTypes);
+        JComboBox model4 = new JComboBox(playerTypes);
 
         typePanel.setLayout(new BoxLayout(typePanel, BoxLayout.Y_AXIS));
         typeSetUp.setBorder(GUI.blackline);
         typeSetUp.setLayout(new BoxLayout(typeSetUp, BoxLayout.Y_AXIS));
         typeSetUp.add(typeLabel);
-        typeSetUp.add(p1TypeSpinner);
-        typeSetUp.add(p2TypeSpinner);
-        typeSetUp.add(p3TypeSpinner);
-        typeSetUp.add(p4TypeSpinner);
+        typeSetUp.add(model1);
+        typeSetUp.add(model2);
+        typeSetUp.add(model3);
+        typeSetUp.add(model4);
+
         typePanel.add(typeSetUp);
         mainPanel.add(typePanel);
 
@@ -66,6 +62,23 @@ public class PlayersSetupPanel extends JPanel {
             public void stateChanged(ChangeEvent e) {
                 JSlider state = (JSlider) e.getSource();
                 numOfPlayers = (int) ((state.getValue()) / 35) + 2;
+
+                if (numOfPlayers==2){
+                    model1.setEnabled(true);
+                    model2.setEnabled(true);
+                    model3.setEnabled(false);
+                    model4.setEnabled(false);
+                } else if (numOfPlayers==3){
+                    model1.setEnabled(true);
+                    model2.setEnabled(true);
+                    model3.setEnabled(true);
+                    model4.setEnabled(false);
+                } else{
+                model1.setEnabled(true);
+                model2.setEnabled(true);
+                model3.setEnabled(true);
+                model4.setEnabled(true);}
+
                 numOfPlayerLabel.setText("" + numOfPlayers);
             }
         });
