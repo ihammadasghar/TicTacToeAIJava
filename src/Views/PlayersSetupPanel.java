@@ -18,6 +18,7 @@ public class PlayersSetupPanel extends JPanel {
         JPanel typeSetUp = new JPanel();
         JPanel typePanel = new JPanel();
         JLabel title = new JLabel("Players", SwingConstants.CENTER);
+        title.setForeground(Color.BLUE);
         JLabel typeLabel = new JLabel("Type", SwingConstants.CENTER);
         JLabel numOfPlayerLabel = new JLabel("3");
 

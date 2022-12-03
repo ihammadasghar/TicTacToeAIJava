@@ -1,15 +1,17 @@
 package Views;
 
+import Models.Grid;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class SizePanel extends JPanel {
-    public int gridSize = 3;
-    public int winNum = 7;
+    public int gridSize = Grid.gridSize/*3*/;
+    public int winNum = Grid.win/*7*/;
 
     public SizePanel() {
+
         Font display = new Font("Monospace", Font.PLAIN, 40);
 
         JPanel sizeOptions = new JPanel();
@@ -18,6 +20,7 @@ public class SizePanel extends JPanel {
         JPanel winSetUp = new JPanel();
         JPanel Win = new JPanel();
         JLabel sizeTitle = new JLabel("Size", SwingConstants.CENTER);
+        sizeTitle.setForeground(Color.BLUE);
         JLabel gridValue = new JLabel("6x6");
         JLabel winValue = new JLabel("" + winNum);
 
@@ -56,12 +59,13 @@ public class SizePanel extends JPanel {
             @Override
             public void stateChanged(ChangeEvent e) {
                 JSlider state = (JSlider) e.getSource();
-                gridSize = (int) ((state.getValue()) / 14) + 3;
-                if (winNum > gridSize) {
-                    winNum = gridSize;
+                int tempgridSize = (int) ((state.getValue()) / 14) + 3;
+                if (winNum > tempgridSize) {
+                    winNum = tempgridSize;
                     winValue.setText("" + winNum);
                 }
-                GUI.state.gridSize = gridSize;
+                gridSize = tempgridSize;
+                Models.Grid.gridSize = gridSize;
                 gridValue.setText(gridSize + "x" + gridSize);
             }
         });
