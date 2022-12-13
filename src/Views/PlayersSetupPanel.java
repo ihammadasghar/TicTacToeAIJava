@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class PlayersSetupPanel extends JPanel {
     public int numOfPlayers = 4;
-    public JComboBox p1Type, p2Type, p3Type, p4Type;
+    public JComboBox[] playerTypeComboBoxes = new JComboBox[4];
 
     public PlayersSetupPanel() {
         Font display = new Font("Monospace", Font.PLAIN, 40);
@@ -41,19 +41,18 @@ public class PlayersSetupPanel extends JPanel {
 
         String playerTypes[] = {"Human", "AI"};
 
-        p1Type = new JComboBox(playerTypes);
-        p2Type = new JComboBox(playerTypes);
-        p3Type = new JComboBox(playerTypes);
-        p4Type = new JComboBox(playerTypes);
+        for (int i = 0; i < playerTypeComboBoxes.length; i++) {
+            playerTypeComboBoxes[i] = new JComboBox(playerTypes);
+        }
 
         typePanel.setLayout(new BoxLayout(typePanel, BoxLayout.Y_AXIS));
         typeSetUp.setBorder(GUI.blackline);
         typeSetUp.setLayout(new BoxLayout(typeSetUp, BoxLayout.Y_AXIS));
         typeSetUp.add(typeLabel);
-        typeSetUp.add(p1Type);
-        typeSetUp.add(p2Type);
-        typeSetUp.add(p3Type);
-        typeSetUp.add(p4Type);
+
+        for (int i = 0; i < playerTypeComboBoxes.length; i++) {
+            typeSetUp.add(playerTypeComboBoxes[i]);
+        }
 
         typePanel.add(typeSetUp);
         mainPanel.add(typePanel);
@@ -64,21 +63,8 @@ public class PlayersSetupPanel extends JPanel {
                 JSlider state = (JSlider) e.getSource();
                 numOfPlayers = (int) ((state.getValue()) / 35) + 2;
 
-                if (numOfPlayers == 2) {
-                    p1Type.setEnabled(true);
-                    p2Type.setEnabled(true);
-                    p3Type.setEnabled(false);
-                    p4Type.setEnabled(false);
-                } else if (numOfPlayers == 3) {
-                    p1Type.setEnabled(true);
-                    p2Type.setEnabled(true);
-                    p3Type.setEnabled(true);
-                    p4Type.setEnabled(false);
-                } else {
-                    p1Type.setEnabled(true);
-                    p2Type.setEnabled(true);
-                    p3Type.setEnabled(true);
-                    p4Type.setEnabled(true);
+                for (int i = 0; i < playerTypeComboBoxes.length; i++) {
+                    playerTypeComboBoxes[i].setEnabled(i < numOfPlayers);
                 }
 
                 numOfPlayerLabel.setText("" + numOfPlayers);

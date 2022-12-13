@@ -26,13 +26,13 @@ public class GUI {
     public static void startGame() {
         setupFrame.dispose();
 
-        ArrayList<Player> players = PlayerController.getPlayerList(new PlayersSetupPanel());
+        ArrayList<Player> players = PlayerController.getPlayerList(setupFrame.playersSetupPanel);
         state = GameController.getGameState("something", 2, Grid.gridSize, players);
 
         inPlayFrame = new InPlayFrame();
     }
 
-    public static void endGame(){
+    public static void endGame() {
         inPlayFrame.dispose();
         startGUI();
     }
