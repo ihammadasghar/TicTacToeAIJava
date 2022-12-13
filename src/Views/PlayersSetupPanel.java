@@ -6,7 +6,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class PlayersSetupPanel extends JPanel {
-    public int numOfPlayers = 3;
+    public int numOfPlayers = 4;
+    public JComboBox p1Type, p2Type, p3Type, p4Type;
 
     public PlayersSetupPanel() {
         Font display = new Font("Monospace", Font.PLAIN, 40);
@@ -19,7 +20,7 @@ public class PlayersSetupPanel extends JPanel {
         JLabel title = new JLabel("Players", SwingConstants.CENTER);
         title.setForeground(Color.BLUE);
         JLabel typeLabel = new JLabel("Type", SwingConstants.CENTER);
-        JLabel numOfPlayerLabel = new JLabel("3");
+        JLabel numOfPlayerLabel = new JLabel("" + numOfPlayers);
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         title.setFont(display);
@@ -40,19 +41,19 @@ public class PlayersSetupPanel extends JPanel {
 
         String playerTypes[] = {"Human", "AI"};
 
-        JComboBox model1 = new JComboBox(playerTypes);
-        JComboBox model2 = new JComboBox(playerTypes);
-        JComboBox model3 = new JComboBox(playerTypes);
-        JComboBox model4 = new JComboBox(playerTypes);
+        p1Type = new JComboBox(playerTypes);
+        p2Type = new JComboBox(playerTypes);
+        p3Type = new JComboBox(playerTypes);
+        p4Type = new JComboBox(playerTypes);
 
         typePanel.setLayout(new BoxLayout(typePanel, BoxLayout.Y_AXIS));
         typeSetUp.setBorder(GUI.blackline);
         typeSetUp.setLayout(new BoxLayout(typeSetUp, BoxLayout.Y_AXIS));
         typeSetUp.add(typeLabel);
-        typeSetUp.add(model1);
-        typeSetUp.add(model2);
-        typeSetUp.add(model3);
-        typeSetUp.add(model4);
+        typeSetUp.add(p1Type);
+        typeSetUp.add(p2Type);
+        typeSetUp.add(p3Type);
+        typeSetUp.add(p4Type);
 
         typePanel.add(typeSetUp);
         mainPanel.add(typePanel);
@@ -63,21 +64,22 @@ public class PlayersSetupPanel extends JPanel {
                 JSlider state = (JSlider) e.getSource();
                 numOfPlayers = (int) ((state.getValue()) / 35) + 2;
 
-                if (numOfPlayers==2){
-                    model1.setEnabled(true);
-                    model2.setEnabled(true);
-                    model3.setEnabled(false);
-                    model4.setEnabled(false);
-                } else if (numOfPlayers==3){
-                    model1.setEnabled(true);
-                    model2.setEnabled(true);
-                    model3.setEnabled(true);
-                    model4.setEnabled(false);
-                } else{
-                model1.setEnabled(true);
-                model2.setEnabled(true);
-                model3.setEnabled(true);
-                model4.setEnabled(true);}
+                if (numOfPlayers == 2) {
+                    p1Type.setEnabled(true);
+                    p2Type.setEnabled(true);
+                    p3Type.setEnabled(false);
+                    p4Type.setEnabled(false);
+                } else if (numOfPlayers == 3) {
+                    p1Type.setEnabled(true);
+                    p2Type.setEnabled(true);
+                    p3Type.setEnabled(true);
+                    p4Type.setEnabled(false);
+                } else {
+                    p1Type.setEnabled(true);
+                    p2Type.setEnabled(true);
+                    p3Type.setEnabled(true);
+                    p4Type.setEnabled(true);
+                }
 
                 numOfPlayerLabel.setText("" + numOfPlayers);
             }
