@@ -12,25 +12,23 @@ public class SizePanel extends JPanel {
 
     public SizePanel() {
 
-        Font display = new Font("Monospace", Font.PLAIN, 40);
-
         JPanel sizeOptions = new JPanel();
         JPanel Grid = new JPanel();
         JPanel gridSetUp = new JPanel();
         JPanel winSetUp = new JPanel();
         JPanel Win = new JPanel();
         JLabel sizeTitle = new JLabel("Size", SwingConstants.CENTER);
-        sizeTitle.setForeground(Color.BLUE);
         JLabel gridValue = new JLabel("6x6");
         JLabel winValue = new JLabel("" + winNum);
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        sizeTitle.setFont(display);
+        sizeTitle.setForeground(Color.BLUE);
+        sizeTitle.setFont(GUI.setupPanelTitleFont);
         add(sizeTitle);
         add(sizeOptions);
         sizeOptions.setLayout(new BoxLayout(sizeOptions, BoxLayout.X_AXIS));
-        gridValue.setFont(display);
-        winValue.setFont(display);
+        gridValue.setFont(GUI.displayFont);
+        winValue.setFont(GUI.displayFont);
         JLabel winTitle = new JLabel("Win", SwingConstants.CENTER);
         JSlider winSlider = new JSlider(JSlider.VERTICAL);
 

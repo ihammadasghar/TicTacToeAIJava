@@ -15,7 +15,7 @@ public class GameOptionsPanel extends JPanel implements ActionListener {
         this.setBorder(GUI.blackline);
         JLabel label = new JLabel("Game Options", JLabel.CENTER);
         label.setForeground(Color.BLUE);
-        label.setFont(new Font("Monospace", Font.PLAIN, 40));
+        label.setFont(GUI.setupPanelTitleFont);
         label.setPreferredSize(new Dimension(250, 50));
         add(label);
 

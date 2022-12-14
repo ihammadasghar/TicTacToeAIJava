@@ -8,8 +8,6 @@ import java.awt.event.ActionListener;
 public class GridPanel extends JPanel implements ActionListener {
     public GridPanel(int n) {
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-        Font fontSym = new Font("Dialog", Font.BOLD, 25);
-        Font fontSides = new Font("Monospace", Font.PLAIN, 30);
 
         setLayout(new GridLayout(0, (n + 2), 10, 10));
 
@@ -23,7 +21,7 @@ public class GridPanel extends JPanel implements ActionListener {
                 add(blk);
             } else {
                 JLabel lgd = new JLabel("" + alphabet[(l - 1)], SwingConstants.CENTER);
-                lgd.setFont(fontSides);
+                lgd.setFont(GUI.gridSidesFont);
                 add(lgd);
             }
         }
@@ -31,16 +29,16 @@ public class GridPanel extends JPanel implements ActionListener {
         //creates grid
         for (int i = 0; i < n; i++) {
             JLabel idxLeft = new JLabel("" + i, SwingConstants.RIGHT);
-            idxLeft.setFont(fontSides);
+            idxLeft.setFont(GUI.gridSidesFont);
             add(idxLeft);
             for (int j = 0; j < n; j++) {
                 JButton btn = new JButton("  ");
-                btn.setFont(fontSym);
+                btn.setFont(GUI.gridSymFont);
                 btn.addActionListener(this);
                 add(btn);
             }
             JLabel idxRight = new JLabel("" + i, SwingConstants.LEFT);
-            idxRight.setFont(fontSides);
+            idxRight.setFont(GUI.gridSidesFont);
             add(idxRight);
         }
 
@@ -54,7 +52,7 @@ public class GridPanel extends JPanel implements ActionListener {
                 add(blk);
             } else {
                 JLabel lgd = new JLabel("" + alphabet[(l - 1)], SwingConstants.CENTER);
-                lgd.setFont(fontSides);
+                lgd.setFont(GUI.gridSidesFont);
                 add(lgd);
             }
         }

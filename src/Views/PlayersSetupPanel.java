@@ -10,7 +10,6 @@ public class PlayersSetupPanel extends JPanel {
     public JComboBox[] playerTypeComboBoxes = new JComboBox[4];
 
     public PlayersSetupPanel() {
-        Font display = new Font("Monospace", Font.PLAIN, 40);
 
         JPanel mainPanel = new JPanel();
         JPanel Grid = new JPanel();
@@ -23,11 +22,11 @@ public class PlayersSetupPanel extends JPanel {
         JLabel numOfPlayerLabel = new JLabel("" + numOfPlayers);
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        title.setFont(display);
+        title.setFont(GUI.setupPanelTitleFont);
         add(title);
         add(mainPanel);
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
-        numOfPlayerLabel.setFont(display);
+        numOfPlayerLabel.setFont(GUI.displayFont);
 
         JSlider numOfPlayerSlider = new JSlider(JSlider.VERTICAL);
 
