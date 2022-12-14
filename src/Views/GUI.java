@@ -21,6 +21,13 @@ public class GUI {
     public static SetupFrame setupFrame;
     public static InPlayFrame inPlayFrame;
 
+    //Fonts
+    public static final Font displayFont = new Font("Monospace", Font.PLAIN, 40);
+    public static final Font setupPanelTitleFont = new Font("Monospace", Font.PLAIN, 40);
+    public static final Font gridSymFont = new Font("Dialog", Font.BOLD, 25);
+    public static final Font gridSidesFont = new Font("Monospace", Font.PLAIN, 30);
+    public static final Font startFont = new Font("Dialog", Font.BOLD, 30);
+
     public static void startGUI() {
         setupFrame = new SetupFrame();
     }
