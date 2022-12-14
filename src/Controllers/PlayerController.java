@@ -2,6 +2,8 @@ package Controllers;
 
 import Models.AIPlayer;
 import Models.Player;
+import Models.Game;
+import Views.GUI;
 import Views.PlayersSetupPanel;
 
 import java.util.ArrayList;
@@ -23,7 +25,12 @@ public class PlayerController {
         return players;
     }
 
-    public static void makeMove() {
+    public static void makeMove(Player player, int row, int col, Game game) {
+        int i = game.players.indexOf(player);
+        game.grid[row][col] = i;
+    }
 
+    public static int getNextPlayerIndex(Game game) {
+        return (game.players.indexOf(game.currentPlayer) + 1) % game.players.size();
     }
 }

@@ -5,7 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GridPanel extends JPanel implements ActionListener {
+import Controllers.PlayerController;
+
+public class GridPanel extends JPanel {
     public GridPanel(int n) {
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
@@ -34,7 +36,7 @@ public class GridPanel extends JPanel implements ActionListener {
             for (int j = 0; j < n; j++) {
                 JButton btn = new JButton("  ");
                 btn.setFont(GUI.gridSymFont);
-                btn.addActionListener(this);
+                btn.addActionListener(new GridBtnActionListener(i, j));
                 add(btn);
             }
             JLabel idxRight = new JLabel("" + i, SwingConstants.LEFT);
@@ -56,12 +58,6 @@ public class GridPanel extends JPanel implements ActionListener {
                 add(lgd);
             }
         }
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        JButton clickedBtn = (JButton) e.getSource();
-        clickedBtn.setText(String.valueOf(GUI.state.currentPlayer.symbol));
-        clickedBtn.setEnabled(false);
     }
 
 }
