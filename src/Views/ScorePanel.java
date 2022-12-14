@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ScorePanel extends JPanel implements ActionListener {
+    public JRadioButton[] currentPlayerBtns = new JRadioButton[GUI.state.players.size()];
+
     public ScorePanel() {
         this.setSize(GUI.FRAME_WIDTH, GUI.FRAME_HEIGHT);
         this.setLayout(new GridLayout(0, 2, 10, 10));
@@ -18,17 +20,19 @@ public class ScorePanel extends JPanel implements ActionListener {
 
         ButtonGroup group = new ButtonGroup();
         for (int i = 0; i < GUI.state.players.size(); i++) {
-            JRadioButton player = new JRadioButton("" + GUI.state.players.get(i).name);
-            player.addActionListener(this);
+            currentPlayerBtns[i] = new JRadioButton("" + GUI.state.players.get(i).name);
+            currentPlayerBtns[i].addActionListener(this);
             JLabel playerScore = new JLabel("" + GUI.state.players.get(i).wins, SwingConstants.CENTER);
-            if (i == 0) {
-                player.setSelected(true);
-            }
-            group.add(player);
-            this.add(player);
+            group.add(currentPlayerBtns[i]);
+            this.add(currentPlayerBtns[i]);
             this.add(playerScore);
         }
+        currentPlayerBtns[0].setSelected(true);
 
+    }
+
+    public void setCurrentPlayer(int i) {
+        currentPlayerBtns[i].setSelected(true);
     }
 
 
