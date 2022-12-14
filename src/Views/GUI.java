@@ -22,11 +22,11 @@ public class GUI {
     public static InPlayFrame inPlayFrame;
 
     //Fonts
-    public static Font displayFont = new Font("Monospace", Font.PLAIN, 40);
-    public static Font setupPanelTitleFont = new Font("Monospace", Font.PLAIN, 40);
-    public static Font gridSymFont = new Font("Dialog", Font.BOLD, 25);
-    public static Font gridSidesFont = new Font("Monospace", Font.PLAIN, 30);
-    public static Font startFont = new Font("Dialog", Font.BOLD, 30);
+    public static final Font displayFont = new Font("Monospace", Font.PLAIN, 40);
+    public static final Font setupPanelTitleFont = new Font("Monospace", Font.PLAIN, 40);
+    public static final Font gridSymFont = new Font("Dialog", Font.BOLD, 25);
+    public static final Font gridSidesFont = new Font("Monospace", Font.PLAIN, 30);
+    public static final Font startFont = new Font("Dialog", Font.BOLD, 30);
 
     public static void startGUI() {
         setupFrame = new SetupFrame();
