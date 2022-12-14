@@ -24,6 +24,12 @@ public class GridBtnActionListener implements ActionListener {
         GUI.state.currentPlayer = GUI.state.players.get(nextPlayerIndex);
 
         GUI.inPlayFrame.scorePanel.setCurrentPlayer(nextPlayerIndex);
+        for(int i=0;i< GUI.inPlayFrame.scorePanel.currentPlayerBtns.length; i++){
+            if (i== nextPlayerIndex){
+                GUI.inPlayFrame.scorePanel.currentPlayerBtns[nextPlayerIndex].setEnabled(true);
+            }
+            GUI.inPlayFrame.scorePanel.currentPlayerBtns[i].setEnabled(false);
+        }
 
         clickedBtn.setEnabled(false);
     }
