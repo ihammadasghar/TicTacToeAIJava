@@ -2,10 +2,6 @@ package Views;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import Controllers.PlayerController;
 
 public class GridPanel extends JPanel {
     public GridPanel(int n) {

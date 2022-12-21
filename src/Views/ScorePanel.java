@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ScorePanel extends JPanel implements ActionListener {
-    public JRadioButton[] currentPlayerBtns = new JRadioButton[GUI.state.players.size()];
+    public JRadioButton[] currentPlayerBtns = new JRadioButton[GUI.state.players.length];
+    public JLabel[] playerScoreLabels = new JLabel[GUI.state.players.length];
 
     public ScorePanel() {
         this.setSize(GUI.FRAME_WIDTH, GUI.FRAME_HEIGHT);
@@ -19,14 +20,14 @@ public class ScorePanel extends JPanel implements ActionListener {
         setBorder(GUI.blackline);
 
         ButtonGroup group = new ButtonGroup();
-        for (int i = 0; i < GUI.state.players.size(); i++) {
-            currentPlayerBtns[i] = new JRadioButton("" + GUI.state.players.get(i).name);
+        for (int i = 0; i < GUI.state.players.length; i++) {
+            currentPlayerBtns[i] = new JRadioButton("" + GUI.state.players[i].name);
             currentPlayerBtns[i].addActionListener(this);
             currentPlayerBtns[i].setEnabled(false);
-            JLabel playerScore = new JLabel("" + GUI.state.players.get(i).wins, SwingConstants.CENTER);
+            playerScoreLabels[i] = new JLabel("" + GUI.state.players[i].currentGameScore, SwingConstants.CENTER);
             group.add(currentPlayerBtns[i]);
             this.add(currentPlayerBtns[i]);
-            this.add(playerScore);
+            this.add(playerScoreLabels[i]);
         }
         currentPlayerBtns[0].setEnabled(true);
         currentPlayerBtns[0].setSelected(true);
@@ -42,7 +43,11 @@ public class ScorePanel extends JPanel implements ActionListener {
         currentPlayerBtns[i].setSelected(false);
         currentPlayerBtns[i].setEnabled(false);
     }
-    
+
+    public void updateCurrentPlayerScore() {
+        playerScoreLabels[GUI.state.currentPlayerNum].setText("" + GUI.state.players[GUI.state.currentPlayerNum].currentGameScore);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
     }
