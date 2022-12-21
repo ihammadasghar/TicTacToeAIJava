@@ -15,19 +15,21 @@ public class GridBtnActionListener implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        // set symbol
         JButton clickedBtn = (JButton) e.getSource();
         clickedBtn.setText(String.valueOf(GUI.state.players[GUI.state.currentPlayerNum].symbol));
+        clickedBtn.setEnabled(false);
 
+        // backend update
         PlayerController.makeMove(row, col, GUI.state);
+
+        // frontend score update
         GUI.inPlayFrame.scorePanel.updateCurrentPlayerScore();
 
-        GUI.inPlayFrame.scorePanel.unsetPlayer(GUI.state.currentPlayerNum);
 
+        GUI.inPlayFrame.scorePanel.unsetPlayer(GUI.state.currentPlayerNum);
         int nextPlayerIndex = PlayerController.getNextPlayerIndex(GUI.state);
         GUI.state.currentPlayerNum = nextPlayerIndex;
-
         GUI.inPlayFrame.scorePanel.setCurrentPlayer(nextPlayerIndex);
-
-        clickedBtn.setEnabled(false);
     }
 }
