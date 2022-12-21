@@ -20,6 +20,9 @@ public class GridBtnActionListener implements ActionListener {
 
         PlayerController.makeMove(GUI.state.currentPlayer, row, col, GUI.state);
 
+        int currentPlayerIndex = GUI.state.players.indexOf(GUI.state.currentPlayer);
+        GUI.inPlayFrame.scorePanel.unsetPlayer(currentPlayerIndex);
+
         int nextPlayerIndex = PlayerController.getNextPlayerIndex(GUI.state);
         GUI.state.currentPlayer = GUI.state.players.get(nextPlayerIndex);
 
