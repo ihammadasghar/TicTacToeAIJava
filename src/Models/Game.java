@@ -38,11 +38,7 @@ public class Game {
         for (int row = 0; row < this.gridSize; row++) {
             int count = 0;
             for (int col = 0; col < this.gridSize; col++) {
-                if (playerNum != this.grid[row][col]) {
-                    count = 0;
-                } else {
-                    count++;
-                }
+                count = playerNum != this.grid[row][col] ? 0 : count + 1;
 
                 if (count == this.win) {
                     players[playerNum].currentGameScore++;
@@ -56,11 +52,8 @@ public class Game {
         for (int col = 0; col < this.gridSize; col++) {
             int count = 0;
             for (int row = 0; row < this.gridSize; row++) {
-                if (playerNum != this.grid[row][col]) {
-                    count = 0;
-                } else {
-                    count++;
-                }
+                count = playerNum != this.grid[row][col] ? 0 : count + 1;
+
                 if (count == this.win) {
                     players[playerNum].currentGameScore++;
                     count--;
@@ -72,11 +65,8 @@ public class Game {
     private void checkDiag1(int playerNum) {
         int count = 0;
         for (int i = 0; i < this.gridSize; i++) {
-            if (playerNum != this.grid[i][i]) {
-                count = 0;
-            } else {
-                count++;
-            }
+            count = playerNum != this.grid[i][i] ? 0 : count + 1;
+
             if (count == this.win) {
                 players[playerNum].currentGameScore++;
                 count--;
@@ -88,11 +78,8 @@ public class Game {
         int count = 0;
         for (int i = 0; i < this.gridSize; i++) {
             int col = this.gridSize - 1 - i;
-            if (playerNum != this.grid[i][col]) {
-                count = 0;
-            } else {
-                count++;
-            }
+            count = playerNum != this.grid[i][col] ? 0 : count + 1;
+
             if (count == this.win) {
                 players[playerNum].currentGameScore++;
                 count--;
