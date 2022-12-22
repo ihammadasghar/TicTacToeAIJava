@@ -15,6 +15,8 @@ public class GUI {
     public static final int FRAME_WIDTH = 1200;
     public static final char[] playerSymbols = {'O', 'X', '$', 'I'};
     public static final String[] gameTypeOptions = {"Normal", "Misère", "Random turn"};
+
+    public static final String[] playerColors = {/*green*/"#4E9F3D", /*red*/"#950101", /*blue*/"#6E85B2", /*yellow*/"#FFD369"};
     public static Game state;
     public static Border blackline = BorderFactory.createLineBorder(Color.black);
     public static SetupFrame setupFrame;
@@ -34,7 +36,7 @@ public class GUI {
     public static void startGame() {
         setupFrame.dispose();
 
-        Player[] players = PlayerController.getPlayerList(setupFrame.playersSetupPanel, playerSymbols);
+        Player[] players = PlayerController.getPlayerList(setupFrame.playersSetupPanel, playerSymbols, playerColors);
         String gameType = "no type";
         for (int i = 0; i < gameTypeOptions.length; i++) {
             if (setupFrame.optionsPanel.optionRadioBtns[i].isSelected()) {

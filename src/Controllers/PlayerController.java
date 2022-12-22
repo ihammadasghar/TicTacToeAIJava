@@ -5,23 +5,24 @@ import Models.Player;
 import Models.Game;
 import Views.PlayersSetupPanel;
 
+import java.awt.*;
+
 public class PlayerController {
-    public static Player[] getPlayerList(PlayersSetupPanel panel, char[] playerChars) {
+    public static Player[] getPlayerList(PlayersSetupPanel panel, char[] playerChars, String[] playerColors) {
         Player[] players = new Player[panel.numOfPlayers];
 
         for (int i = 0; i < panel.numOfPlayers; i++) {
             boolean isAI = (String) panel.playerTypeComboBoxes[i].getSelectedItem() == "AI";
             if (isAI) {
-                Player ai = new AIPlayer("Player " + (i + 1) + (" (AI)"), playerChars[i]);
+                Player ai = new AIPlayer("Player " + (i + 1) + (" (AI)"), playerChars[i], playerColors[i]);
                 players[i] = ai;
             } else {
-                players[i] = new Player("Player " + (i + 1), playerChars[i]);
+                players[i] = new Player("Player " + (i + 1), playerChars[i], playerColors[i]);
             }
 
         }
         return players;
     }
-
     public static void makeMove(int row, int col, Game game) {
         game.grid[row][col] = game.currentPlayerNum;
         game.calculatePlayerScore(game.currentPlayerNum);
