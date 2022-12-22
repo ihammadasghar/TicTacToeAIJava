@@ -3,34 +3,31 @@ package Controllers;
 import Models.AIPlayer;
 import Models.Player;
 import Models.Game;
-import Views.GUI;
 import Views.PlayersSetupPanel;
 
-import java.util.ArrayList;
-
 public class PlayerController {
-    public static ArrayList<Player> getPlayerList(PlayersSetupPanel panel, char[] playerChars) {
-        ArrayList<Player> players = new ArrayList<Player>();
+    public static Player[] getPlayerList(PlayersSetupPanel panel, char[] playerChars) {
+        Player[] players = new Player[panel.numOfPlayers];
 
         for (int i = 0; i < panel.numOfPlayers; i++) {
             boolean isAI = (String) panel.playerTypeComboBoxes[i].getSelectedItem() == "AI";
             if (isAI) {
-                Player ai = new AIPlayer("Player " + (i + 1), playerChars[i]);
-                players.add(ai);
+                Player ai = new AIPlayer("Player " + (i + 1) + (" (AI)"), playerChars[i]);
+                players[i] = ai;
             } else {
-                players.add(new Player("Player " + (i + 1), playerChars[i]));
+                players[i] = new Player("Player " + (i + 1), playerChars[i]);
             }
 
         }
         return players;
     }
 
-    public static void makeMove(Player player, int row, int col, Game game) {
-        int i = game.players.indexOf(player);
-        game.grid[row][col] = i;
+    public static void makeMove(int row, int col, Game game) {
+        game.grid[row][col] = game.currentPlayerNum;
+        game.calculatePlayerScore(game.currentPlayerNum);
     }
 
     public static int getNextPlayerIndex(Game game) {
-        return (game.players.indexOf(game.currentPlayer) + 1) % game.players.size();
+        return (game.currentPlayerNum + 1) % game.players.length;
     }
 }
