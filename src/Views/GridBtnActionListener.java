@@ -36,7 +36,9 @@ public class GridBtnActionListener implements ActionListener {
         GUI.inPlayFrame.scorePanel.updateCurrentPlayerScore();
 
         GUI.inPlayFrame.scorePanel.unsetPlayer(GUI.state.currentPlayerNum);
+        
         int nextPlayerIndex = PlayerController.getNextPlayerIndex(GUI.state);
+
         GUI.state.currentPlayerNum = nextPlayerIndex;
         GUI.inPlayFrame.scorePanel.setCurrentPlayer(nextPlayerIndex);
     }

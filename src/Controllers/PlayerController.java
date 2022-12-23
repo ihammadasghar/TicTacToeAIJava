@@ -1,8 +1,11 @@
 package Controllers;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import Models.AIPlayer;
 import Models.Player;
 import Models.Game;
+import Views.GUI;
 import Views.PlayersSetupPanel;
 
 import java.awt.*;
@@ -30,6 +33,7 @@ public class PlayerController {
     }
 
     public static int getNextPlayerIndex(Game game) {
-        return (game.currentPlayerNum + 1) % game.players.length;
+        int nextPlayerIndex = game.type == "Random turn" ? ThreadLocalRandom.current().nextInt(0, GUI.state.players.length) : (game.currentPlayerNum + 1) % game.players.length;
+        return nextPlayerIndex;
     }
 }
