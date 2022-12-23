@@ -15,6 +15,8 @@ public class GUI {
     public static final int FRAME_WIDTH = 1200;
     public static final char[] playerSymbols = {'O', 'X', '$', 'I'};
     public static final String[] gameTypeOptions = {"Normal", "Misère", "Random turn"};
+
+    public static final String[] playerColors = {/*green*/"#4E9F3D", /*red*/"#950101", /*blue*/"#6E85B2", /*yellow*/"#FFD369"};
     public static Game state;
     public static Border blackline = BorderFactory.createLineBorder(Color.black);
     public static SetupFrame setupFrame;

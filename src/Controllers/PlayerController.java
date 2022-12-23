@@ -5,6 +5,8 @@ import Models.Player;
 import Models.Game;
 import Views.PlayersSetupPanel;
 
+import java.awt.*;
+
 public class PlayerController {
     public static Player[] getPlayerList(PlayersSetupPanel panel, char[] playerChars) {
         Player[] players = new Player[panel.numOfPlayers];
