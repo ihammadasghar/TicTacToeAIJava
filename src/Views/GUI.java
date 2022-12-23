@@ -26,6 +26,8 @@ public class GUI {
     public static final Font displayFont = new Font("Monospace", Font.PLAIN, 40);
     public static final Font setupPanelTitleFont = new Font("Monospace", Font.PLAIN, 40);
     public static final Font gridSymFont = new Font("Dialog", Font.BOLD, 25);
+    public static final Font typeFont = new Font("Dialog", Font.PLAIN, 25);
+    public static final Font playerFont = new Font("Dialog", Font.PLAIN, 70);
     public static final Font gridSidesFont = new Font("Monospace", Font.PLAIN, 30);
     public static final Font startFont = new Font("Dialog", Font.BOLD, 30);
 

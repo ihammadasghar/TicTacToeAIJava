@@ -1,6 +1,7 @@
 package Views;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
@@ -10,23 +11,29 @@ public class PlayersSetupPanel extends JPanel {
     public JComboBox[] playerTypeComboBoxes = new JComboBox[4];
 
     public PlayersSetupPanel() {
-
         JPanel mainPanel = new JPanel();
         JPanel Grid = new JPanel();
         JPanel gridSetUp = new JPanel();
         JPanel typeSetUp = new JPanel();
         JPanel typePanel = new JPanel();
-        JLabel title = new JLabel("Players", SwingConstants.CENTER);
-        title.setForeground(Color.BLUE);
+        JPanel titlePanel = new JPanel();
+
+        JLabel title = new JLabel("Players", JLabel.RIGHT);
         JLabel typeLabel = new JLabel("Type", SwingConstants.CENTER);
+        typeLabel.setBorder(new EmptyBorder(20, 0, 20, 0));
         JLabel numOfPlayerLabel = new JLabel("" + numOfPlayers);
+        title.setForeground(Color.BLUE);
+        typeLabel.setFont(GUI.typeFont);
+        numOfPlayerLabel.setFont(GUI.playerFont);
+
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         title.setFont(GUI.setupPanelTitleFont);
-        add(title);
+        titlePanel.add(title);
+        add(titlePanel);
         add(mainPanel);
+        mainPanel.setBorder(GUI.blackline);
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
-        numOfPlayerLabel.setFont(GUI.displayFont);
 
         JSlider numOfPlayerSlider = new JSlider(JSlider.VERTICAL);
 
@@ -42,17 +49,17 @@ public class PlayersSetupPanel extends JPanel {
 
         for (int i = 0; i < playerTypeComboBoxes.length; i++) {
             playerTypeComboBoxes[i] = new JComboBox(playerTypes);
+            playerTypeComboBoxes[i].setMaximumSize(new Dimension(300,100));
         }
 
         typePanel.setLayout(new BoxLayout(typePanel, BoxLayout.Y_AXIS));
-        typeSetUp.setBorder(GUI.blackline);
+        typePanel.setBorder(GUI.blackline);
         typeSetUp.setLayout(new BoxLayout(typeSetUp, BoxLayout.Y_AXIS));
-        typeSetUp.add(typeLabel);
+        typeSetUp.add(typeLabel, BorderLayout.CENTER);
 
         for (int i = 0; i < playerTypeComboBoxes.length; i++) {
             typeSetUp.add(playerTypeComboBoxes[i]);
         }
-
         typePanel.add(typeSetUp);
         mainPanel.add(typePanel);
 
