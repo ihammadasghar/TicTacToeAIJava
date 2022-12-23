@@ -1,8 +1,8 @@
 package Models;
 
 public class AIPlayer extends Player {
-    public AIPlayer(String name, char symbol, String color) {
-        super(name, symbol, color);
+    public AIPlayer(String name, char symbol) {
+        super(name, symbol);
     }
 
     public int[] calculateMove() {

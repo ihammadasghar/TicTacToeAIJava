@@ -19,14 +19,15 @@ public class GridBtnActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // set symbol
         JButton clickedBtn = (JButton) e.getSource();
-        System.out.println("PlayerNum1 "+GUI.state.currentPlayerNum);
-        clickedBtn.setUI(new MetalButtonUI(){
-            protected Color getDisabledTextColor(){
-                    return Color.decode(GUI.state.players[GUI.state.currentPlayerNum].color);
+
+        int currentPlayerNum = GUI.state.currentPlayerNum;
+        clickedBtn.setText(String.valueOf(GUI.state.players[currentPlayerNum].symbol));
+        clickedBtn.setEnabled(false);
+        clickedBtn.setUI(new MetalButtonUI() {
+            protected Color getDisabledTextColor() {
+                return Color.decode(GUI.playerColors[currentPlayerNum]);
             }
         });
-        clickedBtn.setText(String.valueOf(GUI.state.players[GUI.state.currentPlayerNum].symbol));
-        clickedBtn.setEnabled(false);
 
         // backend update
         PlayerController.makeMove(row, col, GUI.state);
@@ -34,11 +35,9 @@ public class GridBtnActionListener implements ActionListener {
         // frontend score update
         GUI.inPlayFrame.scorePanel.updateCurrentPlayerScore();
 
-
         GUI.inPlayFrame.scorePanel.unsetPlayer(GUI.state.currentPlayerNum);
         int nextPlayerIndex = PlayerController.getNextPlayerIndex(GUI.state);
         GUI.state.currentPlayerNum = nextPlayerIndex;
-        System.out.println("PlayerNum2 "+GUI.state.currentPlayerNum+"\n");
         GUI.inPlayFrame.scorePanel.setCurrentPlayer(nextPlayerIndex);
     }
 }

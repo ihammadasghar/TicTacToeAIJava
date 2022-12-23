@@ -36,7 +36,7 @@ public class GUI {
     public static void startGame() {
         setupFrame.dispose();
 
-        Player[] players = PlayerController.getPlayerList(setupFrame.playersSetupPanel, playerSymbols, playerColors);
+        Player[] players = PlayerController.getPlayerList(setupFrame.playersSetupPanel, playerSymbols);
         String gameType = "no type";
         for (int i = 0; i < gameTypeOptions.length; i++) {
             if (setupFrame.optionsPanel.optionRadioBtns[i].isSelected()) {

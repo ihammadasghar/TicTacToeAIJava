@@ -6,13 +6,11 @@ public class Player {
     public int losses = 0;
     public int draws = 0;
     public char symbol;
-    public String color;
     public int currentGameScore;
 
-    public Player(String name, char symbol, String color) {
+    public Player(String name, char symbol) {
         this.name = name;
         this.symbol = symbol;
-        this.color = color;
     }
 
 }

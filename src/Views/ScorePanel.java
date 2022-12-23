@@ -23,16 +23,13 @@ public class ScorePanel extends JPanel implements ActionListener {
 
         ButtonGroup group = new ButtonGroup();
         for (int i = 0; i < GUI.state.players.length; i++) {
-            currentPlayerBtns[i] = new JRadioButton("" + GUI.state.players[i].name);
+            currentPlayerBtns[i] = new JRadioButton("[" + GUI.state.players[i].symbol + "] " + GUI.state.players[i].name);
             currentPlayerBtns[i].addActionListener(this);
             currentPlayerBtns[i].setForeground((Color.decode(GUI.playerColors[i])));
             currentPlayerBtns[i].setEnabled(false);
-            currentPlayerBtns[i].setUI(new MetalRadioButtonUI(){
-                protected Color getDisabledTextColor(){
-                    return Color.decode(GUI.playerColors[GUI.state.currentPlayerNum]);
-                }
-            });
+            
             playerScoreLabels[i] = new JLabel("" + GUI.state.players[i].currentGameScore, SwingConstants.CENTER);
+
             group.add(currentPlayerBtns[i]);
             this.add(currentPlayerBtns[i]);
             this.add(playerScoreLabels[i]);
