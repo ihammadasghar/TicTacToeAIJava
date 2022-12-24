@@ -29,7 +29,8 @@ public class PlayerController {
 
     public static void makeMove(int row, int col, Game game) {
         game.grid[row][col] = game.currentPlayerNum;
-        game.calculatePlayerScore(game.currentPlayerNum);
+        int score = game.calculatePlayerScore(game.currentPlayerNum);
+        game.players[game.currentPlayerNum].currentGameScore = game.type == "Misère" ? -score : score;
     }
 
     public static int getNextPlayerIndex(Game game) {

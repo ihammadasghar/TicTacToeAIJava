@@ -26,64 +26,68 @@ public class Game {
         return false;
     }
 
-    public void calculatePlayerScore(int playerNum) {
-        players[playerNum].currentGameScore = 0;
-        checkRows(playerNum);
-        checkCols(playerNum);
-        checkDiag1(playerNum);
-        checkDiag2(playerNum);
+    public int calculatePlayerScore(int playerNum) {
+        return getRowsScore(playerNum) + getColsScore(playerNum) + getDiag1Score(playerNum) + getDiag2Score(playerNum);
     }
 
-    private void checkCols(int playerNum) {
+    private int getColsScore(int playerNum) {
+        int score = 0;
         for (int row = 0; row < this.gridSize; row++) {
             int count = 0;
             for (int col = 0; col < this.gridSize; col++) {
                 count = playerNum != this.grid[row][col] ? 0 : count + 1;
 
                 if (count == this.win) {
-                    players[playerNum].currentGameScore++;
+                    score++;
                     count--;
                 }
             }
         }
+        return score;
     }
 
-    private void checkRows(int playerNum) {
+    private int getRowsScore(int playerNum) {
+        int score = 0;
         for (int col = 0; col < this.gridSize; col++) {
             int count = 0;
             for (int row = 0; row < this.gridSize; row++) {
                 count = playerNum != this.grid[row][col] ? 0 : count + 1;
 
                 if (count == this.win) {
-                    players[playerNum].currentGameScore++;
+                    score++;
                     count--;
                 }
             }
         }
+        return score;
     }
 
-    private void checkDiag1(int playerNum) {
+    private int getDiag1Score(int playerNum) {
+        int score = 0;
         int count = 0;
         for (int i = 0; i < this.gridSize; i++) {
             count = playerNum != this.grid[i][i] ? 0 : count + 1;
 
             if (count == this.win) {
-                players[playerNum].currentGameScore++;
+                score++;
                 count--;
             }
         }
+        return score;
     }
 
-    private void checkDiag2(int playerNum) {
+    private int getDiag2Score(int playerNum) {
+        int score = 0;
         int count = 0;
         for (int i = 0; i < this.gridSize; i++) {
             int col = this.gridSize - 1 - i;
             count = playerNum != this.grid[i][col] ? 0 : count + 1;
 
             if (count == this.win) {
-                players[playerNum].currentGameScore++;
+                score++;
                 count--;
             }
         }
+        return score;
     }
 }
