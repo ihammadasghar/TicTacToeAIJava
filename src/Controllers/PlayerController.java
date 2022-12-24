@@ -5,6 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import Models.AIPlayer;
 import Models.Player;
 import Models.Game;
+import Views.GUI;
 import Views.PlayersSetupPanel;
 
 import java.awt.*;
