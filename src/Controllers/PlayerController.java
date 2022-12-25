@@ -31,6 +31,7 @@ public class PlayerController {
         game.grid[row][col] = game.currentPlayerNum;
         int score = game.calculatePlayerScore(game.currentPlayerNum);
         game.players[game.currentPlayerNum].currentGameScore = game.type == "Misère" ? -score : score;
+        game.movesMade++;
     }
 
     public static int getNextPlayerIndex(Game game) {

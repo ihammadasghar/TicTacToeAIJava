@@ -1,6 +1,8 @@
 package Views;
 
+import Controllers.GameController;
 import Controllers.PlayerController;
+import Models.Game;
 
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalButtonUI;
@@ -29,17 +31,10 @@ public class GridBtnActionListener implements ActionListener {
             }
         });
 
-        // backend update
         PlayerController.makeMove(row, col, GUI.state);
-
-        // frontend score update
-        GUI.inPlayFrame.scorePanel.updateCurrentPlayerScore();
-
-        GUI.inPlayFrame.scorePanel.unsetPlayer(GUI.state.currentPlayerNum);
+        GameController.changeTurn();
         
-        int nextPlayerIndex = PlayerController.getNextPlayerIndex(GUI.state);
-
-        GUI.state.currentPlayerNum = nextPlayerIndex;
-        GUI.inPlayFrame.scorePanel.setCurrentPlayer(nextPlayerIndex);
+        /* NOTE: Switch GameEndedFrame when Frame is made*/
+        // if(GameController.isGameOver(GUI.state)) ;
     }
 }
