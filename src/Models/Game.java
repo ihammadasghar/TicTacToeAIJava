@@ -64,13 +64,17 @@ public class Game {
 
     private int getDiag1Score(int playerNum) {
         int score = 0;
-        int count = 0;
-        for (int i = 0; i < this.gridSize; i++) {
-            count = playerNum != this.grid[i][i] ? 0 : count + 1;
-
-            if (count == this.win) {
-                score++;
-                count--;
+        for (int i = 0; i < this.gridSize - this.win + 1; i++) {
+            for (int j = 0; j < this.gridSize - this.win + 1; j++) {
+                int count = 0;
+                for (int inc = 0; inc < this.win; inc++) {
+                    if (playerNum == grid[i + inc][j + inc]) {
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+                if (count == this.win) score++;
             }
         }
         return score;
@@ -78,14 +82,17 @@ public class Game {
 
     private int getDiag2Score(int playerNum) {
         int score = 0;
-        int count = 0;
-        for (int i = 0; i < this.gridSize; i++) {
-            int col = this.gridSize - 1 - i;
-            count = playerNum != this.grid[i][col] ? 0 : count + 1;
-
-            if (count == this.win) {
-                score++;
-                count--;
+        for (int i = 0; i < this.gridSize - this.win + 1; i++) {
+            for (int j = this.win - 1; j < this.gridSize; j++) {
+                int count = 0;
+                for (int inc = 0; inc < this.win; inc++) {
+                    if (playerNum == grid[i + inc][j - inc]) {
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+                if (count == this.win) score++;
             }
         }
         return score;
