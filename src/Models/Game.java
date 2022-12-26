@@ -7,6 +7,7 @@ public class Game {
     public Player[] players;
     public int currentPlayerNum;
     public int[][] grid;
+    public int movesMade = 0;
 
     public Game(String type, int win, int gridSize, Player[] players) {
         this.type = type;
@@ -20,10 +21,6 @@ public class Game {
         }
         this.players = players;
         currentPlayerNum = 0;
-    }
-
-    public boolean isGameOver(int playerNum) {
-        return false;
     }
 
     public int calculatePlayerScore(int playerNum) {
