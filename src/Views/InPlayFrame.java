@@ -29,8 +29,8 @@ public class InPlayFrame extends JFrame {
         gameDetailsPanel.add(cancelPanel);
 
         // Add panels to the frame
-        c.ipady = (int) (GUI.FRAME_HEIGHT / 3);
-        c.ipadx = (int) (GUI.FRAME_WIDTH / 6);
+        c.ipady = (int) (GUI.FRAME_HEIGHT_INPLAY / 3);
+        c.ipadx = (int) (GUI.FRAME_WIDTH_INPLAY / 6);
         c.gridwidth = 3;
         c.gridx = 0;
         c.gridy = 0;
@@ -45,7 +45,7 @@ public class InPlayFrame extends JFrame {
 
         // Make frame visible
         add(main);
-        setSize(GUI.FRAME_WIDTH, GUI.FRAME_HEIGHT);
+        setSize(GUI.FRAME_WIDTH_INPLAY, GUI.FRAME_HEIGHT_INPLAY);
         setVisible(true);
     }
 }

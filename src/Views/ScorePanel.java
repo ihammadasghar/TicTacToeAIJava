@@ -12,7 +12,7 @@ public class ScorePanel extends JPanel implements ActionListener {
     public JLabel[] playerScoreLabels = new JLabel[GUI.state.players.length];
 
     public ScorePanel() {
-        this.setSize(GUI.FRAME_WIDTH, GUI.FRAME_HEIGHT);
+        this.setSize(GUI.FRAME_WIDTH_INPLAY, GUI.FRAME_HEIGHT_INPLAY);
         this.setLayout(new GridLayout(0, 2, 10, 10));
 
         JLabel currentPlayer = new JLabel("Current Player");
