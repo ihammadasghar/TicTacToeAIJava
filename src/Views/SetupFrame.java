@@ -21,7 +21,7 @@ public class SetupFrame extends JFrame {
         sizePanel = new SizePanel();
         startPanel = new StartPanel();
         playersSetupPanel = new PlayersSetupPanel();
-        optionsPanel.setSize((int) GUI.FRAME_WIDTH / 4, (int) GUI.FRAME_HEIGHT / 4);
+        optionsPanel.setSize((int) GUI.FRAME_WIDTH_SETUP / 4, (int) GUI.FRAME_HEIGHT_SETUP / 4);
         main.add(playersSetupPanel);
         main.add(sizePanel);
         main.add(optionsPanel);
@@ -29,7 +29,7 @@ public class SetupFrame extends JFrame {
 
         // Make frame visible
         add(main);
-        setSize(GUI.FRAME_WIDTH, GUI.FRAME_HEIGHT);
+        setSize(GUI.FRAME_WIDTH_SETUP, GUI.FRAME_HEIGHT_SETUP);
         setVisible(true);
     }
 }

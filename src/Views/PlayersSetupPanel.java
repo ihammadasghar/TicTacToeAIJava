@@ -18,14 +18,16 @@ public class PlayersSetupPanel extends JPanel {
         JPanel typePanel = new JPanel();
         JPanel titlePanel = new JPanel();
 
+        JSlider numOfPlayerSlider = new JSlider(JSlider.VERTICAL);
+
         JLabel title = new JLabel("Players", JLabel.RIGHT);
         JLabel typeLabel = new JLabel("Type", SwingConstants.CENTER);
-        typeLabel.setBorder(new EmptyBorder(20, 0, 20, 0));
         JLabel numOfPlayerLabel = new JLabel("" + numOfPlayers);
+
+        typeLabel.setBorder(new EmptyBorder(20, 0, 20, 0));
         title.setForeground(Color.BLUE);
         typeLabel.setFont(GUI.typeFont);
-        numOfPlayerLabel.setFont(GUI.playerFont);
-
+        numOfPlayerLabel.setFont(GUI.valueFont);
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         title.setFont(GUI.setupPanelTitleFont);
@@ -34,8 +36,6 @@ public class PlayersSetupPanel extends JPanel {
         add(mainPanel);
         mainPanel.setBorder(GUI.blackline);
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
-
-        JSlider numOfPlayerSlider = new JSlider(JSlider.VERTICAL);
 
         Grid.setLayout(new BoxLayout(Grid, BoxLayout.Y_AXIS));
         gridSetUp.setBorder(GUI.blackline);

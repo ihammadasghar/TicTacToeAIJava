@@ -2,6 +2,7 @@ package Views;
 
 import Models.Grid;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
@@ -11,47 +12,72 @@ public class SizePanel extends JPanel {
     public int winNum = Grid.win/*7*/;
 
     public SizePanel() {
-
         JPanel sizeOptions = new JPanel();
-        JPanel Grid = new JPanel();
+        JPanel gridBox = new JPanel();
         JPanel gridSetUp = new JPanel();
         JPanel winSetUp = new JPanel();
-        JPanel Win = new JPanel();
-        JLabel sizeTitle = new JLabel("Size", SwingConstants.CENTER);
-        JLabel gridValue = new JLabel("6x6");
-        JLabel winValue = new JLabel("" + winNum);
+        JPanel winBox = new JPanel();
 
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        sizeTitle.setForeground(Color.BLUE);
-        sizeTitle.setFont(GUI.setupPanelTitleFont);
-        add(sizeTitle);
-        add(sizeOptions);
-        sizeOptions.setLayout(new BoxLayout(sizeOptions, BoxLayout.X_AXIS));
-        gridValue.setFont(GUI.displayFont);
-        winValue.setFont(GUI.displayFont);
-        JLabel winTitle = new JLabel("Win", SwingConstants.CENTER);
+        JSlider gridSlider = new JSlider(JSlider.VERTICAL);
         JSlider winSlider = new JSlider(JSlider.VERTICAL);
 
-        JLabel gridTitle = new JLabel("Grid", SwingConstants.CENTER);
-        JSlider gridSlider = new JSlider(JSlider.VERTICAL);
+        JLabel sizeTitle = new JLabel("Size", SwingConstants.CENTER);
+        JLabel gridTitle = new JLabel("Grid", SwingConstants.LEFT);
+        JLabel winTitle = new JLabel("Win", JLabel.CENTER);
+        JLabel gridValue = new JLabel("  "+Models.Grid.gridSize+"x"+Models.Grid.gridSize+"  ");
+        JLabel winValue = new JLabel("" + winNum);
 
-        Grid.setLayout(new BoxLayout(Grid, BoxLayout.Y_AXIS));
-        Grid.add(gridTitle);
-        gridSetUp.setBorder(GUI.blackline);
+        gridBox.setBorder(GUI.blackline);
+        winBox.setBorder(GUI.blackline);
+
+        sizeOptions.setAlignmentX(SwingConstants.CENTER);
+        sizeOptions.setBorder(new EmptyBorder(0, 45, 0, 0));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        sizeTitle.setForeground(Color.BLUE);
+        sizeTitle.setFont(GUI.setupPanelTitleFont);
+        sizeTitle.setBorder(new EmptyBorder(9, 170, 10, 10));
+
+        add(sizeTitle);
+        add(sizeOptions);
+
+        sizeOptions.setLayout(new BoxLayout(sizeOptions, BoxLayout.X_AXIS));
+
+        // Grid
+        gridSetUp.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+        gridTitle.setAlignmentX(JLabel.LEFT_ALIGNMENT);
+        gridTitle.setBorder(new EmptyBorder(0, 10, 0, 55));
+
+        gridTitle.setFont(GUI.grid_winFont);
+        gridValue.setFont(GUI.valueFont);
+        gridBox.setLayout(new BoxLayout(gridBox, BoxLayout.Y_AXIS));
+        gridBox.add(gridTitle);
         gridSetUp.setLayout(new BoxLayout(gridSetUp, BoxLayout.X_AXIS));
         gridSetUp.add(gridSlider);
         gridSetUp.add(gridValue);
-        Grid.add(gridSetUp);
-        sizeOptions.add(Grid);
-        
-        Win.setLayout(new BoxLayout(Win, BoxLayout.Y_AXIS));
-        Win.add(winTitle);
-        winSetUp.setBorder(GUI.blackline);
+        gridBox.add(gridSetUp);
+        sizeOptions.add(gridBox);
+
+        // Win
+        winSetUp.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+        winTitle.setAlignmentX(JLabel.LEFT_ALIGNMENT);
+        winTitle.setBorder(new EmptyBorder(0, 40, 0, 40));
+
+        winTitle.setFont(GUI.grid_winFont);
+        winValue.setFont(GUI.valueFont);
+        winBox.setLayout(new BoxLayout(winBox, BoxLayout.Y_AXIS));
+        winBox.add(winTitle);
         winSetUp.setLayout(new BoxLayout(winSetUp, BoxLayout.X_AXIS));
         winSetUp.add(winSlider);
         winSetUp.add(winValue);
-        Win.add(winSetUp);
-        sizeOptions.add(Win);
+        winBox.add(winSetUp);
+        sizeOptions.add(winBox);
 
         gridSlider.addChangeListener(new ChangeListener() {
             @Override
@@ -64,7 +90,11 @@ public class SizePanel extends JPanel {
                 }
                 gridSize = tempgridSize;
                 Models.Grid.gridSize = gridSize;
-                gridValue.setText(gridSize + "x" + gridSize);
+                if(gridSize<=9){
+                gridValue.setText("  "+gridSize + "x" + gridSize+"  ");}
+                else{
+                gridValue.setText(""+gridSize + "x" + gridSize+"");}
+
             }
         });
         winSetUp.add(winSlider);

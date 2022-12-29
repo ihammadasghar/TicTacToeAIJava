@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 public class StartPanel extends JPanel implements ActionListener {
 
     public StartPanel() {
-        this.setBorder(new EmptyBorder(20, 10, 50, 10));
+        this.setBorder(new EmptyBorder(20, 30, 50, 10));
         this.setLayout(new GridBagLayout());
 
         GridBagConstraints gbc = new GridBagConstraints();

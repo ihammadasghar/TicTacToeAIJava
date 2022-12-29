@@ -23,9 +23,4 @@ public class Game {
         this.players = players;
         currentPlayerNum = 0;
     }
-
-    public boolean isGameOver(int playerNum) {
-        return false;
-    }
-
 }
