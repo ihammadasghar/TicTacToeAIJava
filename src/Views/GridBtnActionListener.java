@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 public class GridBtnActionListener implements ActionListener {
     int col, row;
 
-    public GridBtnActionListener(int col, int row) {
+    public GridBtnActionListener(int row, int col) {
         this.col = col;
         this.row = row;
     }
@@ -32,9 +32,13 @@ public class GridBtnActionListener implements ActionListener {
         });
 
         PlayerController.makeMove(row, col, GUI.state);
+
         GameController.changeTurn();
         
         /* NOTE: Switch GameEndedFrame when Frame is made*/
         // if(GameController.isGameOver(GUI.state)) ;
+
+        PlayerController.playMoveIfAI();
+
     }
 }

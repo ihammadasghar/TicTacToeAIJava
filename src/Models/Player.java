@@ -7,10 +7,12 @@ public class Player {
     public int draws = 0;
     public char symbol;
     public int currentGameScore;
+    public boolean isAI;
 
-    public Player(String name, char symbol) {
+    public Player(String name, char symbol, boolean isAI) {
         this.name = name;
         this.symbol = symbol;
+        this.isAI = isAI;
     }
 
 }
