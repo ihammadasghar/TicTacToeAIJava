@@ -29,7 +29,6 @@ public class SizePanel extends JPanel {
 
         gridBox.setBorder(GUI.blackline);
         winBox.setBorder(GUI.blackline);
-
         sizeOptions.setAlignmentX(SwingConstants.CENTER);
         sizeOptions.setBorder(new EmptyBorder(0, 45, 0, 0));
 

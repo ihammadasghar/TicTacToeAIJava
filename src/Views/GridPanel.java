@@ -6,8 +6,11 @@ import java.awt.*;
 public class GridPanel extends JPanel {
     public JButton[][] gridBtns = new JButton[GUI.state.gridSize][GUI.state.gridSize];
 
+
     public GridPanel(int n) {
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        JPanel panel2 = new JPanel();
+        panel2.setBorder(BorderFactory.createEtchedBorder());
 
         setLayout(new GridLayout(0, (n + 2), 10, 10));
 
@@ -57,5 +60,8 @@ public class GridPanel extends JPanel {
             }
         }
     }
+
+
+
 
 }

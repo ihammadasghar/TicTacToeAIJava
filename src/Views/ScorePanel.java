@@ -1,25 +1,32 @@
 package Views;
 
 import javax.swing.*;
-import javax.swing.plaf.metal.MetalButtonUI;
-import javax.swing.plaf.metal.MetalRadioButtonUI;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+
 
 public class ScorePanel extends JPanel implements ActionListener {
+
+    HashMap<Integer, Integer> playerscore = new HashMap();
+
     public static JRadioButton[] currentPlayerBtns = new JRadioButton[GUI.state.players.length];
-    public JLabel[] playerScoreLabels = new JLabel[GUI.state.players.length];
+    public static JLabel[] playerScoreLabels = new JLabel[GUI.state.players.length];
+
 
     public ScorePanel() {
         this.setSize(GUI.FRAME_WIDTH_INPLAY, GUI.FRAME_HEIGHT_INPLAY);
         this.setLayout(new GridLayout(0, 2, 10, 10));
 
-        JLabel currentPlayer = new JLabel("Current Player");
+
+        JLabel currentPlayer = new JLabel("Current Player", SwingConstants.CENTER);
         JLabel score = new JLabel("Score", SwingConstants.CENTER);
         add(currentPlayer);
         add(score);
         setBorder(GUI.blackline);
+
 
         ButtonGroup group = new ButtonGroup();
         for (int i = 0; i < GUI.state.players.length; i++) {
@@ -29,10 +36,26 @@ public class ScorePanel extends JPanel implements ActionListener {
             currentPlayerBtns[i].setEnabled(false);
             
             playerScoreLabels[i] = new JLabel("" + GUI.state.players[i].currentGameScore, SwingConstants.CENTER);
+            if(i == 0){
+                playerScoreLabels[i].setForeground(Color.decode("#4E9F3D"));
+            }
+            if(i == 1){
+                playerScoreLabels[i].setForeground(Color.decode("#950101"));
+            }
+            if(i == 2){
+                playerScoreLabels[i].setForeground(Color.decode("#6E85B2"));
+            }
+            if(i == 3){
+                playerScoreLabels[i].setForeground(Color.decode("#FFD369"));
+            }
 
+            JPanel panel = new JPanel();
+            panel.setBorder(BorderFactory.createEtchedBorder());
+            panel.setBackground(Color.white);
             group.add(currentPlayerBtns[i]);
             this.add(currentPlayerBtns[i]);
-            this.add(playerScoreLabels[i]);
+            panel.add(playerScoreLabels[i]);
+            this.add(panel);
         }
         currentPlayerBtns[0].setEnabled(true);
         currentPlayerBtns[0].setSelected(true);
@@ -51,9 +74,14 @@ public class ScorePanel extends JPanel implements ActionListener {
 
     public void updateCurrentPlayerScore() {
         playerScoreLabels[GUI.state.currentPlayerNum].setText("" + GUI.state.players[GUI.state.currentPlayerNum].currentGameScore);
+        playerscore.put(GUI.state.currentPlayerNum, GUI.state.players[GUI.state.currentPlayerNum].currentGameScore);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+    }
+
+    public String getWinner() {
+        return "Congrats! Player " + GUI.state.players[GUI.state.currentPlayerNum] +  "won with " + playerscore.get(GUI.state.currentPlayerNum) + "points";
     }
 }

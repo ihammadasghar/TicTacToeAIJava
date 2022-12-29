@@ -8,17 +8,23 @@ import java.awt.event.ActionListener;
 public class CancelPanel extends JPanel{
     public CancelPanel() {
         this.setLayout(new GridLayout(2,0,0,10));
+
+
         JButton cancelBtn = new JButton("Cancel");
         cancelBtn.setForeground(Color.red);
         cancelBtn.addActionListener(new CloseListener());
         this.add(cancelBtn);
+        setBorder(GUI.blackline);
+
+
     }
 
     private class CloseListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            GUI.endGame();
+            GUI.EndGame();
+
         }
     }
 }

@@ -8,6 +8,7 @@ public class InPlayFrame extends JFrame {
     public CancelPanel cancelPanel;
     public GridPanel gridPanel;
 
+
     // Constructor
     public InPlayFrame() {
         // Setup the frame
@@ -19,11 +20,16 @@ public class InPlayFrame extends JFrame {
         JPanel main = new JPanel(new GridBagLayout());
         main.setBorder(GUI.blackline);
 
+        JPanel panel1 = new JPanel();
+        panel1.setBorder(BorderFactory.createEtchedBorder());
+        main.add(panel1);
+
         JPanel gameDetailsPanel = new JPanel();
         gameDetailsPanel.setLayout(new BoxLayout(gameDetailsPanel, BoxLayout.Y_AXIS));
 
         scorePanel = new ScorePanel();
         cancelPanel = new CancelPanel();
+
 
         gameDetailsPanel.add(scorePanel);
         gameDetailsPanel.add(cancelPanel);
@@ -35,7 +41,7 @@ public class InPlayFrame extends JFrame {
         c.gridx = 0;
         c.gridy = 0;
         gridPanel = new GridPanel(GUI.state.gridSize);
-        main.add(gridPanel, c);
+        panel1.add(gridPanel, c);
 
         c.ipady = 0;
         c.gridwidth = 1;
@@ -47,6 +53,8 @@ public class InPlayFrame extends JFrame {
         add(main);
         setSize(GUI.FRAME_WIDTH_INPLAY, GUI.FRAME_HEIGHT_INPLAY);
         setVisible(true);
+
+
     }
 }
 

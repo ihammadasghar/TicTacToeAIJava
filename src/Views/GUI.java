@@ -16,7 +16,10 @@ public class GUI {
 
     public static final int FRAME_HEIGHT_SETUP = 800;
     public static final int FRAME_WIDTH_SETUP = 800;
+
+
     public static final char[] playerSymbols = {'O', 'X', '$', 'I'};
+
     public static final String[] gameTypeOptions = {"Normal", "Misère", "Random turn"};
 
     public static final String[] playerColors = {/*green*/"#4E9F3D", /*red*/"#950101", /*blue*/"#6E85B2", /*yellow*/"#FFD369"};
@@ -55,8 +58,14 @@ public class GUI {
         inPlayFrame = new InPlayFrame();
     }
 
-    public static void endGame() {
+    public static void EndGame() {
         inPlayFrame.dispose();
+        JFrame winnerframe = new JFrame("Results");
+        JLabel label = new JLabel();
+        label.setText(inPlayFrame.scorePanel.getWinner());
+        winnerframe.setSize(500,500);
+        winnerframe.add(label);
+        winnerframe.setVisible(true);
         startGUI();
     }
 }
