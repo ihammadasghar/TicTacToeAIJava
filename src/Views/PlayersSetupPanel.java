@@ -34,11 +34,11 @@ public class PlayersSetupPanel extends JPanel {
         titlePanel.add(title);
         add(titlePanel);
         add(mainPanel);
-        mainPanel.setBorder(GUI.blackline);
+        mainPanel.setBorder(GUI.grayline);
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
 
         Grid.setLayout(new BoxLayout(Grid, BoxLayout.Y_AXIS));
-        gridSetUp.setBorder(GUI.blackline);
+        gridSetUp.setBorder(GUI.grayline);
         gridSetUp.setLayout(new BoxLayout(gridSetUp, BoxLayout.Y_AXIS));
         gridSetUp.add(numOfPlayerLabel);
         gridSetUp.add(numOfPlayerSlider);
@@ -53,7 +53,7 @@ public class PlayersSetupPanel extends JPanel {
         }
 
         typePanel.setLayout(new BoxLayout(typePanel, BoxLayout.Y_AXIS));
-        typePanel.setBorder(GUI.blackline);
+        typePanel.setBorder(GUI.grayline);
         typeSetUp.setLayout(new BoxLayout(typeSetUp, BoxLayout.Y_AXIS));
         typeSetUp.add(typeLabel, BorderLayout.CENTER);
 
