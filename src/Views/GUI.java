@@ -20,6 +20,7 @@ public class GUI {
 
     public static final int FRAME_HEIGHT_GAMEOVER = 300;
     public static final int FRAME_WIDTH_GAMEOVER = 500;
+    
     public static final char[] playerSymbols = {'O', 'X', '$', 'I'};
     public static final String[] gameTypeOptions = {"Normal", "Misère", "Random turn"};
 
