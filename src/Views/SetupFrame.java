@@ -15,7 +15,7 @@ public class SetupFrame extends JFrame {
         super("Game Setup");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel main = new JPanel(new GridLayout(2, 2));
-        main.setBorder(GUI.blackline);
+        main.setBorder(GUI.grayline);
 
         optionsPanel = new GameOptionsPanel();
         sizePanel = new SizePanel();

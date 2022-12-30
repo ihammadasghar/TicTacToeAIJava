@@ -1,8 +1,6 @@
 package Views;
 
 import javax.swing.*;
-import javax.swing.plaf.metal.MetalButtonUI;
-import javax.swing.plaf.metal.MetalRadioButtonUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,10 +17,11 @@ public class ScorePanel extends JPanel implements ActionListener {
         JLabel score = new JLabel("Score", SwingConstants.CENTER);
         add(currentPlayer);
         add(score);
-        setBorder(GUI.blackline);
+        setBorder(GUI.grayline);
 
         ButtonGroup group = new ButtonGroup();
         for (int i = 0; i < GUI.state.players.length; i++) {
+            GUI.state.players[i].currentGameScore = 0;
             currentPlayerBtns[i] = new JRadioButton("[" + GUI.state.players[i].symbol + "] " + GUI.state.players[i].name);
             currentPlayerBtns[i].addActionListener(this);
             currentPlayerBtns[i].setForeground((Color.decode(GUI.playerColors[i])));

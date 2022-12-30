@@ -18,7 +18,7 @@ public class GameOptionsPanel extends JPanel implements ActionListener {
 
         JLabel label = new JLabel("Game Options", SwingConstants.CENTER);
 
-        optionsPanel.setBorder(GUI.blackline);
+        optionsPanel.setBorder(GUI.grayline);
         optionsPanel.setLayout(new GridLayout(3,1));
 
         title.setBorder(new EmptyBorder(100, 10, 50, 10));

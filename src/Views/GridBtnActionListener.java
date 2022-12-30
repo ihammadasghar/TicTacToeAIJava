@@ -38,6 +38,9 @@ public class GridBtnActionListener implements ActionListener {
         /* NOTE: Switch GameEndedFrame when Frame is made*/
         // if(GameController.isGameOver(GUI.state)) ;
 
+        if(PlayerController.isGridFull(GUI.state.grid ,GUI.state.players.length)) {
+            GUI.gameOver();
+        }
         PlayerController.playMoveIfAI();
 
     }
