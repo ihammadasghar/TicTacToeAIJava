@@ -35,6 +35,7 @@ public class GameOverFrame extends JFrame {
         this.add(main);
 
         setSize(GUI.FRAME_WIDTH_GAMEOVER, GUI.FRAME_HEIGHT_GAMEOVER);
+        setLocation(GUI.END_X_POSITION,GUI.END_Y_POSITION);
         setVisible(true);
     }
 

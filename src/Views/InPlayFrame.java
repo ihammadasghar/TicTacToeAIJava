@@ -46,6 +46,7 @@ public class InPlayFrame extends JFrame {
         // Make frame visible
         add(main);
         setSize(GUI.FRAME_WIDTH_INPLAY, GUI.FRAME_HEIGHT_INPLAY);
+        setLocation(GUI.GAME_X_POSITION,GUI.GAME_Y_POSITION);
         setVisible(true);
     }
 }
