@@ -12,16 +12,6 @@ import java.awt.*;
 import java.util.Arrays;
 
 public class GUI {
-    // Location of frames
-    static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-    public static final int SETUP_X_POSITION = (int) (size.getWidth())/4;
-    public static final int SETUP_Y_POSITION = (int) (size.getHeight())/100;
-
-    public static final int GAME_X_POSITION = (int) (size.getWidth())/6;
-    public static final int GAME_Y_POSITION = (int) (size.getHeight())/100;
-
-    public static final int END_X_POSITION = (int) (size.getWidth())/3;
-    public static final int END_Y_POSITION = (int) (size.getHeight())/3;
     public static final int FRAME_HEIGHT_INPLAY = 800;
     public static final int FRAME_WIDTH_INPLAY = 1200;
 
@@ -30,7 +20,6 @@ public class GUI {
 
     public static final int FRAME_HEIGHT_GAMEOVER = 300;
     public static final int FRAME_WIDTH_GAMEOVER = 500;
-
     public static final char[] playerSymbols = {'O', 'X', '$', 'I'};
     public static final String[] gameTypeOptions = {"Normal", "Misère", "Random turn"};
 
