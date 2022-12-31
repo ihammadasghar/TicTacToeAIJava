@@ -32,7 +32,7 @@ public class GridPanel extends JPanel {
             idxLeft.setFont(GUI.gridSidesFont);
             add(idxLeft);
             for (int j = 0; j < n; j++) {
-                gridBtns[i][j] = new JButton("  ");
+                gridBtns[i][j] = new JButton(" "+" "+" ");
                 gridBtns[i][j].setFont(GUI.gridSymFont);
                 gridBtns[i][j].addActionListener(new GridBtnActionListener(i, j));
                 add(gridBtns[i][j]);

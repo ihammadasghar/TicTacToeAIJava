@@ -34,10 +34,10 @@ public class GridBtnActionListener implements ActionListener {
         PlayerController.makeMove(row, col, GUI.state);
 
         GameController.changeTurn();
-        
-        /* NOTE: Switch GameEndedFrame when Frame is made*/
-        // if(GameController.isGameOver(GUI.state)) ;
 
+        if(PlayerController.isGridFull(GUI.state.grid ,GUI.state.players.length)) {
+            GUI.gameOver();
+        }
         PlayerController.playMoveIfAI();
 
     }

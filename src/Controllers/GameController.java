@@ -11,10 +11,6 @@ public class GameController {
         return new Game(type, win, gridSize, players);
     }
 
-    public static boolean isGameOver(Game game) {
-        return game.movesMade == (game.gridSize * game.gridSize);
-    }
-
     public static void changeTurn() {
         GUI.inPlayFrame.scorePanel.updateCurrentPlayerScore();
 

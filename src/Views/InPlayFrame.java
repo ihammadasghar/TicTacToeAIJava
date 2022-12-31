@@ -17,7 +17,7 @@ public class InPlayFrame extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
 
         JPanel main = new JPanel(new GridBagLayout());
-        main.setBorder(GUI.blackline);
+        main.setBorder(GUI.grayline);
 
         JPanel gameDetailsPanel = new JPanel();
         gameDetailsPanel.setLayout(new BoxLayout(gameDetailsPanel, BoxLayout.Y_AXIS));
