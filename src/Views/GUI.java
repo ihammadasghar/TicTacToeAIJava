@@ -12,7 +12,7 @@ import java.awt.*;
 import java.util.Arrays;
 
 public class GUI {
-
+    // Location of frames
     static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
     public static final int SETUP_X_POSITION = (int) (size.getWidth())/4;
     public static final int SETUP_Y_POSITION = (int) (size.getHeight())/100;
