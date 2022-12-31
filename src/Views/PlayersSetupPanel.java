@@ -7,7 +7,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class PlayersSetupPanel extends JPanel {
-    public int numOfPlayers = 4;
+    public int numOfPlayers = 3;
     public JComboBox[] playerTypeComboBoxes = new JComboBox[4];
 
     public PlayersSetupPanel() {
