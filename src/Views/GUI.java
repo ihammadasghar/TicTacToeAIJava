@@ -12,6 +12,17 @@ import java.awt.*;
 import java.util.Arrays;
 
 public class GUI {
+
+    static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+
+    public static final int SETUP_X_POSITION =(int) (size.getWidth())/4;
+    public static final int SETUP_Y_POSITION =(int) (size.getHeight())/100;
+
+    public static final int GAME_X_POSITION =(int) (size.getWidth())/7;
+    public static final int GAME_Y_POSITION =(int) (size.getHeight())/100;
+
+    public static final int END_X_POSITION =(int) (size.getWidth())/3;
+    public static final int END_Y_POSITION =(int) (size.getHeight())/5;
     public static final int FRAME_HEIGHT_INPLAY = 800;
     public static final int FRAME_WIDTH_INPLAY = 1200;
 

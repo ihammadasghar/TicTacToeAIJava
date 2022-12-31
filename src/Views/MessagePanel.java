@@ -2,6 +2,7 @@ package Views;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -20,14 +21,23 @@ public class MessagePanel extends JPanel {
             for(int i=0; i< GUI.state.players.length;i++){
                 verify.add(bestScore);}
 
-        JLabel msg = new JLabel();
+        JLabel msg_player= new JLabel();
+        JLabel msg_score = new JLabel();
+        msg_player.setFont(GUI.typeFont);
+        msg_score.setFont(GUI.typeFont);
+
         // check if all elements are equal
         if(verify.equals(scores)){
-            msg.setText("No winners! Everyone got a score of "+ bestScore);}
-        else{msg.setText(
-                "Congrats! Player " + (scores.indexOf(bestScore)+1) + " won with a score of "+ bestScore);}
+            msg_score.setText("No winners! Everyone got a score of "+ bestScore);
+            this.add(msg_score);
 
-        msg.setFont(GUI.typeFont);
-        this.add(msg);
+        } else{
+            msg_player.setText("Player " + (scores.indexOf(bestScore)+1));
+            msg_player.setForeground((Color.decode(GUI.playerColors[(scores.indexOf(bestScore))])));
+            msg_score.setText(" won with "+bestScore+" points");
+
+            this.add(msg_player);
+            this.add(msg_score);
+        }
 }
 }
