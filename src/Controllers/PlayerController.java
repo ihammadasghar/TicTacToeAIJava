@@ -40,8 +40,9 @@ public class PlayerController {
     }
 
     public static int[] getAIMove(int playerNum, Game game) {
-        double gridSizeCut = 3.0 * ((double) game.gridSize / 10.0);
-        double initialDepth = GUI.state.players[playerNum].name.contains("Smart") ? 6 : 3;
+        boolean isSmart = GUI.state.players[playerNum].name.contains("Smart");
+        double gridSizeCut = isSmart ? (3.0 * ((double) game.gridSize / 10.0)) : 0;
+        double initialDepth = isSmart ? 6 : 3;
         int depth = (int) (initialDepth - gridSizeCut + (initialDepth * ((double) game.movesMade / (double) (game.gridSize * game.gridSize))));
 
         System.out.println("Depth: " + depth);
