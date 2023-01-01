@@ -31,7 +31,7 @@ public class PlayerController {
         if (GUI.state.players[GUI.state.currentPlayerNum].isAI) {
             int[] move = PlayerController.getAIMove(GUI.state.currentPlayerNum, GUI.state);
             System.out.println("Move was: " + move[0] + " - " + move[1]);
-            GUI.inPlayFrame.gridPanel.gridBtns[move[0]][move[1]].doClick(1000);
+            GUI.inPlayFrame.gridPanel.gridBtns[move[0]][move[1]].doClick(500);
         }
     }
 
@@ -42,7 +42,7 @@ public class PlayerController {
     public static int[] getAIMove(int playerNum, Game game) {
         boolean isSmart = GUI.state.players[playerNum].name.contains("Smart");
         double gridSizeCut = isSmart ? (3.0 * ((double) game.gridSize / 10.0)) : 0;
-        double initialDepth = isSmart ? 6 : 3;
+        double initialDepth = isSmart ? 6 : 1;
         int depth = (int) (initialDepth - gridSizeCut + (initialDepth * ((double) game.movesMade / (double) (game.gridSize * game.gridSize))));
 
         System.out.println("Depth: " + depth);
