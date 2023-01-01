@@ -15,14 +15,14 @@ public class GUI {
 
     static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
 
-    public static final int SETUP_X_POSITION =(int) (size.getWidth())/4;
-    public static final int SETUP_Y_POSITION =(int) (size.getHeight())/100;
+    public static final int SETUP_X_POSITION = (int) (size.getWidth()) / 4;
+    public static final int SETUP_Y_POSITION = (int) (size.getHeight()) / 100;
 
-    public static final int GAME_X_POSITION =(int) (size.getWidth())/7;
-    public static final int GAME_Y_POSITION =(int) (size.getHeight())/100;
+    public static final int GAME_X_POSITION = (int) (size.getWidth()) / 7;
+    public static final int GAME_Y_POSITION = (int) (size.getHeight()) / 100;
 
-    public static final int END_X_POSITION =(int) (size.getWidth())/3;
-    public static final int END_Y_POSITION =(int) (size.getHeight())/5;
+    public static final int END_X_POSITION = (int) (size.getWidth()) / 3;
+    public static final int END_Y_POSITION = (int) (size.getHeight()) / 5;
     public static final int FRAME_HEIGHT_INPLAY = 800;
     public static final int FRAME_WIDTH_INPLAY = 1200;
 
@@ -31,6 +31,7 @@ public class GUI {
 
     public static final int FRAME_HEIGHT_GAMEOVER = 300;
     public static final int FRAME_WIDTH_GAMEOVER = 500;
+    public static final String[] playerTypes = {"Human", "Smart AI", "AI"};
     public static final char[] playerSymbols = {'O', 'X', '$', 'I'};
     public static final String[] gameTypeOptions = {"Normal", "Misère", "Random turn"};
 
@@ -54,7 +55,11 @@ public class GUI {
     public static void startGUI() {
         setupFrame = new SetupFrame();
     }
-    public static void afterGame() {gameOverFrame = new GameOverFrame();}
+
+    public static void afterGame() {
+        gameOverFrame = new GameOverFrame();
+    }
+
     public static void startGame() {
         setupFrame.dispose();
 
@@ -70,14 +75,17 @@ public class GUI {
 
         inPlayFrame = new InPlayFrame();
     }
-    public static void restartGame(){
+
+    public static void restartGame() {
         inPlayFrame.dispose();
         gameOverFrame.dispose();
         startGame();
     }
+
     public static void gameOver() {
         afterGame();
     }
+
     public static void cancelGame() {
         inPlayFrame.dispose();
         startGUI();

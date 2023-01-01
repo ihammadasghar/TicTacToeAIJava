@@ -46,11 +46,10 @@ public class PlayersSetupPanel extends JPanel {
         Grid.add(gridSetUp);
         mainPanel.add(Grid);
 
-        String playerTypes[] = {"Human", "AI"};
 
         for (int i = 0; i < playerTypeComboBoxes.length; i++) {
-            playerTypeComboBoxes[i] = new JComboBox(playerTypes);
-            playerTypeComboBoxes[i].setMaximumSize(new Dimension(300,100));
+            playerTypeComboBoxes[i] = new JComboBox(GUI.playerTypes);
+            playerTypeComboBoxes[i].setMaximumSize(new Dimension(300, 100));
         }
 
         typePanel.setLayout(new BoxLayout(typePanel, BoxLayout.Y_AXIS));
