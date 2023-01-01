@@ -8,7 +8,7 @@ public class Game {
     public int currentPlayerNum;
     public int[][] grid;
     public int movesMade = 0;
-    public int[] lastMoveMade = new int[2];
+    public int[] lastMoveMade;
 
     public Game(String type, int win, int gridSize, Player[] players) {
         this.type = type;
@@ -21,6 +21,7 @@ public class Game {
             }
         }
         this.players = players;
-        currentPlayerNum = 0;
+        this.lastMoveMade = new int[]{gridSize / 2, gridSize / 2};
+        this.currentPlayerNum = 0;
     }
 }

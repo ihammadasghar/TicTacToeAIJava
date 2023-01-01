@@ -74,6 +74,7 @@ public class GUI {
         state = GameController.getGameState(gameType, setupFrame.sizePanel.winNum, Grid.gridSize, players);
 
         inPlayFrame = new InPlayFrame();
+        PlayerController.playMoveIfAI();
     }
 
     public static void restartGame() {
