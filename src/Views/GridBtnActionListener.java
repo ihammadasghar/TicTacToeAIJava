@@ -19,7 +19,16 @@ public class GridBtnActionListener implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        // set symbol
+        makeMove(e);
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                PlayerController.playMoveIfAI();
+            }
+        });
+
+    }
+
+    public void makeMove(ActionEvent e) {
         JButton clickedBtn = (JButton) e.getSource();
 
         int currentPlayerNum = GUI.state.currentPlayerNum;
@@ -35,10 +44,8 @@ public class GridBtnActionListener implements ActionListener {
 
         GameController.changeTurn();
 
-        if(PlayerController.isGridFull(GUI.state.grid ,GUI.state.players.length)) {
+        if (PlayerController.isGridFull(GUI.state.grid, GUI.state.players.length)) {
             GUI.gameOver();
         }
-        PlayerController.playMoveIfAI();
-
     }
 }
