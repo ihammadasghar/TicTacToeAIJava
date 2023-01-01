@@ -3,6 +3,7 @@ package Views;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -11,27 +12,34 @@ public class MessagePanel extends JPanel {
     public MessagePanel() {
         this.setBorder(new EmptyBorder(50, 0, 0, 0));
         ArrayList<Integer> scores = new ArrayList<Integer>();
-        ArrayList<Integer> verify = new ArrayList<Integer>();
+        int count =0;
+
         // add scores to array
             for(int i =0; i<GUI.state.players.length; i++) {
             scores.add(GUI.state.players[i].currentGameScore);
         }
         // get index of the highest score
         int bestScore = Collections.max(scores);
-            for(int i=0; i< GUI.state.players.length;i++){
-                verify.add(bestScore);}
+
+        // check if draw
+        for(int i=0; i< GUI.state.players.length;i++){
+            if(scores.get(i) == bestScore){
+                count+=1;}
+        }
 
         JLabel msg_player= new JLabel();
         JLabel msg_score = new JLabel();
         msg_player.setFont(GUI.typeFont);
         msg_score.setFont(GUI.typeFont);
 
-        // check if all elements are equal
-        if(verify.equals(scores)){
-            msg_score.setText("No winners! Everyone got a score of "+ bestScore);
+        if(count >1 && bestScore ==1) {
+            msg_score.setText("Draw with " + bestScore + " point");
+            this.add(msg_score);
+        }else if (count >1 && bestScore >1) {
+            msg_score.setText("Draw with "+ bestScore+" point");
             this.add(msg_score);
 
-        } else{
+        }else{
             msg_player.setText("Player " + (scores.indexOf(bestScore)+1));
             msg_player.setForeground((Color.decode(GUI.playerColors[(scores.indexOf(bestScore))])));
             msg_score.setText(" won with "+bestScore+" points");

@@ -37,7 +37,7 @@ public class GUI {
 
     public static final String[] playerColors = {/*green*/"#4E9F3D", /*red*/"#950101", /*blue*/"#6E85B2", /*yellow*/"#FFD369"};
     public static Game state;
-    public static Border grayline = BorderFactory.createLineBorder(Color.gray);
+    public static Border grayline = BorderFactory.createEtchedBorder();
     public static SetupFrame setupFrame;
     public static InPlayFrame inPlayFrame;
 

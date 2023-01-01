@@ -24,6 +24,7 @@ public class PlayersSetupPanel extends JPanel {
         JLabel typeLabel = new JLabel("Type", SwingConstants.CENTER);
         JLabel numOfPlayerLabel = new JLabel("" + numOfPlayers);
 
+        numOfPlayerSlider.setBorder(new EmptyBorder(0, 5, 0, 0));
         typeLabel.setBorder(new EmptyBorder(20, 0, 20, 0));
         title.setForeground(Color.BLUE);
         typeLabel.setFont(GUI.typeFont);
