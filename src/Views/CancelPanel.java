@@ -7,11 +7,12 @@ import java.awt.event.ActionListener;
 
 public class CancelPanel extends JPanel{
     public CancelPanel() {
-        this.setLayout(new GridLayout(2,0,0,10));
+        this.setLayout(new GridLayout(1,0,10,10));
         JButton cancelBtn = new JButton("Cancel");
         cancelBtn.setForeground(Color.red);
         cancelBtn.addActionListener(new CloseListener());
         this.add(cancelBtn);
+
     }
 
     private class CloseListener implements ActionListener{

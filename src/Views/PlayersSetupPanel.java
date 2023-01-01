@@ -37,6 +37,7 @@ public class PlayersSetupPanel extends JPanel {
         mainPanel.setBorder(GUI.grayline);
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
 
+
         Grid.setLayout(new BoxLayout(Grid, BoxLayout.Y_AXIS));
         gridSetUp.setBorder(GUI.grayline);
         gridSetUp.setLayout(new BoxLayout(gridSetUp, BoxLayout.Y_AXIS));
@@ -56,6 +57,7 @@ public class PlayersSetupPanel extends JPanel {
         typePanel.setBorder(GUI.grayline);
         typeSetUp.setLayout(new BoxLayout(typeSetUp, BoxLayout.Y_AXIS));
         typeSetUp.add(typeLabel, BorderLayout.CENTER);
+
 
         for (int i = 0; i < playerTypeComboBoxes.length; i++) {
             typeSetUp.add(playerTypeComboBoxes[i]);

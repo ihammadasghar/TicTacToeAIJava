@@ -36,8 +36,13 @@ public class MessagePanel extends JPanel {
             msg_player.setForeground((Color.decode(GUI.playerColors[(scores.indexOf(bestScore))])));
             msg_score.setText(" won with "+bestScore+" points");
 
+            if (bestScore == 1){
+                msg_score.setText(" won with "+bestScore+" point");
+            }
             this.add(msg_player);
             this.add(msg_score);
         }
+
+
 }
 }

@@ -7,6 +7,7 @@ public class InPlayFrame extends JFrame {
     public ScorePanel scorePanel;
     public CancelPanel cancelPanel;
     public GridPanel gridPanel;
+    public DetailsPanel detailsPanel;
 
     // Constructor
     public InPlayFrame() {
@@ -21,11 +22,16 @@ public class InPlayFrame extends JFrame {
 
         JPanel gameDetailsPanel = new JPanel();
         gameDetailsPanel.setLayout(new BoxLayout(gameDetailsPanel, BoxLayout.Y_AXIS));
+        gameDetailsPanel.setBorder(GUI.grayline);
+        gameDetailsPanel.setBorder(BorderFactory.createEtchedBorder());
+        gameDetailsPanel.setBackground(Color.white);
 
         scorePanel = new ScorePanel();
+        detailsPanel = new DetailsPanel();
         cancelPanel = new CancelPanel();
 
         gameDetailsPanel.add(scorePanel);
+        gameDetailsPanel.add(detailsPanel);
         gameDetailsPanel.add(cancelPanel);
 
         // Add panels to the frame

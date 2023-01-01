@@ -21,6 +21,7 @@ public class GameOptionsPanel extends JPanel implements ActionListener {
         optionsPanel.setBorder(GUI.grayline);
         optionsPanel.setLayout(new GridLayout(3,1));
 
+
         title.setBorder(new EmptyBorder(100, 10, 50, 10));
         title.setLayout(new GridBagLayout());
 
@@ -33,6 +34,7 @@ public class GameOptionsPanel extends JPanel implements ActionListener {
         label.setForeground(Color.BLUE);
         label.setFont(GUI.setupPanelTitleFont);
         label.setPreferredSize(new Dimension(500, 50));
+
 
         title.add(label);
 

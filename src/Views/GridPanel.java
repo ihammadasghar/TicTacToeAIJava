@@ -11,6 +11,7 @@ public class GridPanel extends JPanel {
 
         setLayout(new GridLayout(0, (n + 2), 10, 10));
 
+
         //adds upper legend
         for (int l = 0; l <= (n + 1); l++) {
             if (l < 1) {
@@ -54,6 +55,7 @@ public class GridPanel extends JPanel {
                 JLabel lgd = new JLabel("" + alphabet[(l - 1)], SwingConstants.CENTER);
                 lgd.setFont(GUI.gridSidesFont);
                 add(lgd);
+
             }
         }
     }
