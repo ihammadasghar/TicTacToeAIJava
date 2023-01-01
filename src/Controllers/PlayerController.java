@@ -13,14 +13,9 @@ public class PlayerController {
         Player[] players = new Player[panel.numOfPlayers];
 
         for (int i = 0; i < panel.numOfPlayers; i++) {
-            boolean isAI = ((String) panel.playerTypeComboBoxes[i].getSelectedItem()).equals("AI");
-            if (isAI) {
-                Player ai = new Player("Player " + (i + 1) + (" (AI)"), playerChars[i], true);
-                players[i] = ai;
-            } else {
-                players[i] = new Player("Player " + (i + 1), playerChars[i], false);
-            }
-
+            String playerType = ((String) panel.playerTypeComboBoxes[i].getSelectedItem());
+            boolean isAI = playerType.equals("AI") || playerType.equals("Smart AI");
+            players[i] = new Player("Player " + (i + 1) + " (" + playerType + ")", playerChars[i], isAI);
         }
         return players;
     }
@@ -45,8 +40,12 @@ public class PlayerController {
     }
 
     public static int[] getAIMove(int playerNum, Game game) {
-        int depth = 6 + (int) (5 * (game.movesMade / (game.gridSize * game.gridSize)));
+        double gridSizeCut = 3.0 * ((double) game.gridSize / 10.0);
+        double initialDepth = GUI.state.players[playerNum].name.contains("Smart") ? 6 : 3;
+        int depth = (int) (initialDepth - gridSizeCut + (initialDepth * ((double) game.movesMade / (double) (game.gridSize * game.gridSize))));
+
         System.out.println("Depth: " + depth);
+
         int[][] grid = deepCopy(game.grid);
         int bestOutcome = Integer.MAX_VALUE;
         ArrayList<int[]> availableMoves = getEmptySlotsCords(grid, GUI.state.players.length);
