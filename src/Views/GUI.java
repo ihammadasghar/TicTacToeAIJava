@@ -30,14 +30,14 @@ public class GUI {
     public static final int FRAME_WIDTH_SETUP = 800;
 
     public static final int FRAME_HEIGHT_GAMEOVER = 300;
-    public static final int FRAME_WIDTH_GAMEOVER = 500;
+    public static final int FRAME_WIDTH_GAMEOVER = 600;
     public static final String[] playerTypes = {"Human", "Smart AI", "AI"};
     public static final char[] playerSymbols = {'O', 'X', '$', 'I'};
     public static final String[] gameTypeOptions = {"Normal", "Misère", "Random turn"};
 
     public static final String[] playerColors = {/*green*/"#4E9F3D", /*red*/"#950101", /*blue*/"#6E85B2", /*yellow*/"#FFD369"};
     public static Game state;
-    public static Border grayline = BorderFactory.createLineBorder(Color.gray);
+    public static Border grayline = BorderFactory.createEtchedBorder();
     public static SetupFrame setupFrame;
     public static InPlayFrame inPlayFrame;
 

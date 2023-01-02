@@ -22,11 +22,7 @@ public class ScorePanel extends JPanel implements ActionListener {
         JLabel score = new JLabel("Score", SwingConstants.CENTER);
         add(currentPlayer);
         add(score);
-        currentPlayer.setBorder(GUI.grayline);
-        score.setBorder(GUI.grayline);
-        currentPlayer.setBorder(BorderFactory.createEtchedBorder());
         currentPlayer.setBackground(Color.white);
-        score.setBorder(BorderFactory.createEtchedBorder());
         score.setBackground(Color.white);
 
 
@@ -40,18 +36,6 @@ public class ScorePanel extends JPanel implements ActionListener {
 
 
             playerScoreLabels[i] = new JLabel("" + GUI.state.players[i].currentGameScore, SwingConstants.CENTER);
-            if (i == 0) {
-                playerScoreLabels[i].setForeground(Color.decode("#4E9F3D"));
-            }
-            if (i == 1) {
-                playerScoreLabels[i].setForeground(Color.decode("#950101"));
-            }
-            if (i == 2) {
-                playerScoreLabels[i].setForeground(Color.decode("#6E85B2"));
-            }
-            if (i == 3) {
-                playerScoreLabels[i].setForeground(Color.decode("#FFD369"));
-            }
 
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEtchedBorder());
@@ -60,8 +44,6 @@ public class ScorePanel extends JPanel implements ActionListener {
             this.add(currentPlayerBtns[i]);
             panel.add(playerScoreLabels[i]);
             this.add(panel);
-
-
 
         }
         currentPlayerBtns[0].setEnabled(true);

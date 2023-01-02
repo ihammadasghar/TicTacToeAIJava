@@ -27,6 +27,9 @@ public class SizePanel extends JPanel {
         JLabel gridValue = new JLabel("  "+Models.Grid.gridSize+"x"+Models.Grid.gridSize+"  ");
         JLabel winValue = new JLabel("" + winNum);
 
+
+        gridSlider.setBorder(new EmptyBorder(0, 5, 0, 0));
+        winSlider.setBorder(new EmptyBorder(0, 5, 0, 0));
         gridBox.setBorder(GUI.grayline);
         winBox.setBorder(GUI.grayline);
 

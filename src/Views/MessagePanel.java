@@ -4,45 +4,51 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
-
 
 public class MessagePanel extends JPanel {
     public MessagePanel() {
         this.setBorder(new EmptyBorder(50, 0, 0, 0));
-        ArrayList<Integer> scores = new ArrayList<Integer>();
-        ArrayList<Integer> verify = new ArrayList<Integer>();
-        // add scores to array
-            for(int i =0; i<GUI.state.players.length; i++) {
-            scores.add(GUI.state.players[i].currentGameScore);
-        }
-        // get index of the highest score
-        int bestScore = Collections.max(scores);
-            for(int i=0; i< GUI.state.players.length;i++){
-                verify.add(bestScore);}
 
-        JLabel msg_player= new JLabel();
-        JLabel msg_score = new JLabel();
+        int bestScore = GUI.state.players[0].currentGameScore;
+        int bestScorePlayerNum = 0;
+        boolean isDraw = false;
+        ArrayList<Integer> drawBetweenPlayerNums = new ArrayList<>();
+        drawBetweenPlayerNums.add(0);
+
+        for (int i = 1; i < GUI.state.players.length; i++) {
+            if (GUI.state.players[i].currentGameScore == bestScore) {
+                isDraw = true;
+                drawBetweenPlayerNums.add(i);
+            } else if (GUI.state.players[i].currentGameScore > bestScore) {
+                bestScore = GUI.state.players[i].currentGameScore;
+                bestScorePlayerNum = i;
+                isDraw = false;
+                drawBetweenPlayerNums.clear();
+                drawBetweenPlayerNums.add(i);
+            }
+        }
+
+        JLabel msg_player = new JLabel("", SwingConstants.CENTER);
+        JLabel msg_score = new JLabel("", SwingConstants.CENTER);
         msg_player.setFont(GUI.typeFont);
         msg_score.setFont(GUI.typeFont);
 
-        // check if all elements are equal
-        if(verify.equals(scores)){
-            msg_score.setText("No winners! Everyone got a score of "+ bestScore);
-            this.add(msg_score);
-
-        } else{
-            msg_player.setText("Player " + (scores.indexOf(bestScore)+1));
-            msg_player.setForeground((Color.decode(GUI.playerColors[(scores.indexOf(bestScore))])));
-            msg_score.setText(" won with "+bestScore+" points");
-
-            if (bestScore == 1){
-                msg_score.setText(" won with "+bestScore+" point");
+        if (isDraw) {
+            StringBuilder msg = new StringBuilder();
+            msg.append("<html>Players ");
+            for (int pNum : drawBetweenPlayerNums) {
+                msg.append(pNum + 1).append(" ");
             }
+            msg.append("<br/>draw with score ").append(bestScore).append("</html>");
+            msg_score.setText(msg.toString());
+        } else {
+            msg_player.setText(GUI.state.players[bestScorePlayerNum].name);
+            msg_player.setForeground((Color.decode(GUI.playerColors[bestScorePlayerNum])));
+            msg_score.setText(" won with " + bestScore + " points");
             this.add(msg_player);
-            this.add(msg_score);
         }
 
+        this.add(msg_score);
 
-}
+    }
 }
