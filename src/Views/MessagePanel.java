@@ -35,11 +35,11 @@ public class MessagePanel extends JPanel {
 
         if (isDraw) {
             StringBuilder msg = new StringBuilder();
-            msg.append("<html>Players ");
+            msg.append("Players ");
             for (int pNum : drawBetweenPlayerNums) {
                 msg.append(pNum + 1).append(" ");
             }
-            msg.append("<br/>draw with score ").append(bestScore).append("</html>");
+            msg.append("drew with score ").append(bestScore);
             msg_score.setText(msg.toString());
         } else {
             msg_player.setText(GUI.state.players[bestScorePlayerNum].name);
