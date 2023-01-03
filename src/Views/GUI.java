@@ -13,6 +13,8 @@ import java.util.Arrays;
 
 public class GUI {
 
+    public static final Border findBorder = BorderFactory.createLineBorder(Color.yellow, 3);
+
     static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
 
     public static final int SETUP_X_POSITION = (int) (size.getWidth()) / 4;
@@ -35,7 +37,7 @@ public class GUI {
     public static final char[] playerSymbols = {'O', 'X', '$', 'I'};
     public static final String[] gameTypeOptions = {"Normal", "Misère", "Random turn"};
 
-    public static final String[] playerColors = {/*green*/"#4E9F3D", /*red*/"#950101", /*blue*/"#6E85B2", /*yellow*/"#FFD369"};
+    public static final String[] playerColors = {/*green*/"#4E9F3D", /*red*/"#950101", /*blue*/"#6E85B2", /*yellow*/"#FFC133"};
     public static Game state;
     public static Border grayline = BorderFactory.createEtchedBorder();
     public static SetupFrame setupFrame;
