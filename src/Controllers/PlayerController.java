@@ -30,7 +30,7 @@ public class PlayerController {
     public static void playMoveIfAI() {
         if (GUI.state.players[GUI.state.currentPlayerNum].isAI) {
             int[] move = PlayerController.getAIMove(GUI.state.currentPlayerNum, GUI.state);
-            System.out.println("Move was: " + move[0] + " - " + move[1]);
+            System.out.println("\nMove was: " + move[0] + " - " + move[1]);
             GUI.inPlayFrame.gridPanel.gridBtns[move[0]][move[1]].doClick(500);
         }
     }
@@ -42,10 +42,8 @@ public class PlayerController {
     public static int[] getAIMove(int playerNum, Game game) {
         boolean isSmart = GUI.state.players[playerNum].name.contains("Smart");
         double gridSizeCut = isSmart ? (3.0 * ((double) game.gridSize / 10.0)) : 0;
-        double initialDepth = isSmart ? 6 : 1;
+        double initialDepth = isSmart ? 4 : 1;
         int depth = (int) (initialDepth - gridSizeCut + (initialDepth * ((double) game.movesMade / (double) (game.gridSize * game.gridSize))));
-
-        System.out.println("Depth: " + depth);
 
         int[][] grid = deepCopy(game.grid);
         int bestOutcome = Integer.MAX_VALUE;
@@ -56,11 +54,11 @@ public class PlayerController {
 
         for (int[] m : availableMoves) {
             int outcome = minimax(m, grid, playerNum, playerNum, Integer.MIN_VALUE, Integer.MAX_VALUE, depth);
-            System.out.println("Possible move was (" + outcome + "): " + m[0] + " - " + m[1]);
+            System.out.println("[Depth: " + depth + ", IsSmart: " + isSmart + "][Move: Row-" + m[0] + " | Col-" + m[1] + "] --> Outcome: " + outcome);
 
             if (outcome <= bestOutcome) {
                 double dist = getDistanceBetweenMoves(m, game.lastMoveMade);
-                if (bestOutcome == outcome && distanceToLastMove <= dist)
+                if (bestOutcome == outcome && distanceToLastMove <= dist && isSmart)
                     continue;
                 bestOutcome = outcome;
                 bestMove = m;
