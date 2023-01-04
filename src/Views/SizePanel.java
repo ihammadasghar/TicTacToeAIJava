@@ -1,6 +1,5 @@
 package Views;
 
-import Models.Grid;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
@@ -8,10 +7,12 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class SizePanel extends JPanel {
-    public int gridSize = Grid.gridSize/*3*/;
-    public int winNum = Grid.win/*7*/;
+    public int gridSize;
+    public int winNum;
 
     public SizePanel() {
+        this.gridSize = 6;
+        this.winNum = 3;
         JPanel sizeOptions = new JPanel();
         JPanel gridBox = new JPanel();
         JPanel gridSetUp = new JPanel();
@@ -24,7 +25,7 @@ public class SizePanel extends JPanel {
         JLabel sizeTitle = new JLabel("Size", SwingConstants.CENTER);
         JLabel gridTitle = new JLabel("Grid", SwingConstants.LEFT);
         JLabel winTitle = new JLabel("Win", JLabel.CENTER);
-        JLabel gridValue = new JLabel("  "+Models.Grid.gridSize+"x"+Models.Grid.gridSize+"  ");
+        JLabel gridValue = new JLabel("  " + gridSize + "x" + gridSize + "  ");
         JLabel winValue = new JLabel("" + winNum);
 
 
@@ -92,11 +93,11 @@ public class SizePanel extends JPanel {
                     winValue.setText("" + winNum);
                 }
                 gridSize = tempgridSize;
-                Models.Grid.gridSize = gridSize;
-                if(gridSize<=9){
-                gridValue.setText("  "+gridSize + "x" + gridSize+"  ");}
-                else{
-                gridValue.setText(""+gridSize + "x" + gridSize+"");}
+                if (gridSize <= 9) {
+                    gridValue.setText("  " + gridSize + "x" + gridSize + "  ");
+                } else {
+                    gridValue.setText("" + gridSize + "x" + gridSize + "");
+                }
 
             }
         });

@@ -3,13 +3,11 @@ package Views;
 import Controllers.GameController;
 import Controllers.PlayerController;
 import Models.Game;
-import Models.Grid;
 import Models.Player;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.util.Arrays;
 
 public class GUI {
 
@@ -40,7 +38,6 @@ public class GUI {
     public static Border grayline = BorderFactory.createEtchedBorder();
     public static SetupFrame setupFrame;
     public static InPlayFrame inPlayFrame;
-
     public static GameOverFrame gameOverFrame;
 
     //Fonts
@@ -61,20 +58,20 @@ public class GUI {
     }
 
     public static void startGame() {
-        setupFrame.dispose();
-
         Player[] players = PlayerController.getPlayerList(setupFrame.playersSetupPanel, playerSymbols);
         String gameType = "no type";
+
         for (int i = 0; i < gameTypeOptions.length; i++) {
             if (setupFrame.optionsPanel.optionRadioBtns[i].isSelected()) {
                 gameType = setupFrame.optionsPanel.optionRadioBtns[i].getText();
                 break;
             }
         }
-        state = GameController.getGameState(gameType, setupFrame.sizePanel.winNum, Grid.gridSize, players);
+        state = GameController.getGameState(gameType, setupFrame.sizePanel.winNum, setupFrame.sizePanel.gridSize, players);
 
+        setupFrame.dispose();
         inPlayFrame = new InPlayFrame();
-        PlayerController.playMoveIfAI();
+        SwingUtilities.invokeLater(PlayerController::playMoveIfAI);
     }
 
     public static void restartGame() {

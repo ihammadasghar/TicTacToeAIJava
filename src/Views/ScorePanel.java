@@ -1,20 +1,17 @@
 package Views;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class ScorePanel extends JPanel implements ActionListener {
-
-
-    public static JRadioButton[] currentPlayerBtns = new JRadioButton[GUI.state.players.length];
-    public static JLabel[] playerScoreLabels = new JLabel[GUI.state.players.length];
-
+    public JRadioButton[] currentPlayerBtns;
+    public JLabel[] playerScoreLabels;
 
     public ScorePanel() {
+        this.currentPlayerBtns = new JRadioButton[GUI.state.players.length];
+        this.playerScoreLabels = new JLabel[GUI.state.players.length];
         this.setSize(GUI.FRAME_WIDTH_INPLAY, GUI.FRAME_HEIGHT_INPLAY);
         this.setLayout(new GridLayout(0, 2, 10, 10));
 
@@ -26,14 +23,12 @@ public class ScorePanel extends JPanel implements ActionListener {
         score.setBackground(Color.white);
 
 
-
         ButtonGroup group = new ButtonGroup();
         for (int i = 0; i < GUI.state.players.length; i++) {
             currentPlayerBtns[i] = new JRadioButton("[" + GUI.state.players[i].symbol + "] " + GUI.state.players[i].name);
             currentPlayerBtns[i].addActionListener(this);
             currentPlayerBtns[i].setForeground((Color.decode(GUI.playerColors[i])));
             currentPlayerBtns[i].setEnabled(false);
-
 
             playerScoreLabels[i] = new JLabel("" + GUI.state.players[i].currentGameScore, SwingConstants.CENTER);
 

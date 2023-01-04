@@ -2,7 +2,6 @@ package Views;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowEvent;
 
 public class SetupFrame extends JFrame {
     public GameOptionsPanel optionsPanel;
@@ -30,7 +29,7 @@ public class SetupFrame extends JFrame {
         // Make frame visible
         add(main);
         setSize(GUI.FRAME_WIDTH_SETUP, GUI.FRAME_HEIGHT_SETUP);
-        setLocation(GUI.SETUP_X_POSITION,GUI.SETUP_Y_POSITION);
+        setLocation(GUI.SETUP_X_POSITION, GUI.SETUP_Y_POSITION);
         setVisible(true);
     }
 }
