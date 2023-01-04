@@ -30,7 +30,14 @@ public class GridBtnActionListener implements ActionListener {
 
     public void makeMove(ActionEvent e) {
         JButton clickedBtn = (JButton) e.getSource();
+        int[] lastMove = GUI.state.lastMoveMade;
 
+        if(GUI.state.movesMade != 0){
+            JButton lastPLay = GUI.inPlayFrame.gridPanel.gridBtns[lastMove[0]][lastMove[1]];
+            lastPLay.setContentAreaFilled(false);
+        }
+
+        clickedBtn.setBackground(Color.yellow);
         int currentPlayerNum = GUI.state.currentPlayerNum;
         clickedBtn.setText(String.valueOf(GUI.state.players[currentPlayerNum].symbol));
         clickedBtn.setEnabled(false);
