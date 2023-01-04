@@ -13,8 +13,6 @@ import java.util.Arrays;
 
 public class GUI {
 
-    public static final Border findBorder = BorderFactory.createLineBorder(Color.yellow, 3);
-
     static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
 
     public static final int SETUP_X_POSITION = (int) (size.getWidth()) / 4;
