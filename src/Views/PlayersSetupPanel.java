@@ -7,10 +7,11 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class PlayersSetupPanel extends JPanel {
-    public int numOfPlayers = 3;
+    public int numOfPlayers;
     public JComboBox[] playerTypeComboBoxes = new JComboBox[4];
 
     public PlayersSetupPanel() {
+        this.numOfPlayers = 4;
         JPanel mainPanel = new JPanel();
         JPanel Grid = new JPanel();
         JPanel gridSetUp = new JPanel();

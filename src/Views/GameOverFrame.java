@@ -1,11 +1,6 @@
 package Views;
 
-import Models.Game;
-
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class GameOverFrame extends JFrame {
 
@@ -13,12 +8,11 @@ public class GameOverFrame extends JFrame {
     public RestartPanel restartPanel;
     public MessagePanel messagePanel;
 
-    public GameOverFrame(){
+    public GameOverFrame() {
         super("Game Over");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel main = new JPanel();
         JPanel buttons = new JPanel();
-
 
         messagePanel = new MessagePanel();
         endPanel = new EndPanel();
@@ -35,7 +29,7 @@ public class GameOverFrame extends JFrame {
         this.add(main);
 
         setSize(GUI.FRAME_WIDTH_GAMEOVER, GUI.FRAME_HEIGHT_GAMEOVER);
-        setLocation(GUI.END_X_POSITION,GUI.END_Y_POSITION);
+        setLocation(GUI.END_X_POSITION, GUI.END_Y_POSITION);
         setVisible(true);
     }
 

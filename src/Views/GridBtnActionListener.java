@@ -2,7 +2,6 @@ package Views;
 
 import Controllers.GameController;
 import Controllers.PlayerController;
-import Models.Game;
 
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalButtonUI;
@@ -19,20 +18,10 @@ public class GridBtnActionListener implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        makeMove(e);
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                PlayerController.playMoveIfAI();
-            }
-        });
-
-    }
-
-    public void makeMove(ActionEvent e) {
         JButton clickedBtn = (JButton) e.getSource();
         int[] lastMove = GUI.state.lastMoveMade;
 
-        if(GUI.state.movesMade != 0){
+        if (GUI.state.movesMade != 0) {
             JButton lastPLay = GUI.inPlayFrame.gridPanel.gridBtns[lastMove[0]][lastMove[1]];
             lastPLay.setContentAreaFilled(false);
         }
@@ -53,6 +42,8 @@ public class GridBtnActionListener implements ActionListener {
 
         if (PlayerController.isGridFull(GUI.state.grid, GUI.state.players.length)) {
             GUI.gameOver();
+        } else {
+            SwingUtilities.invokeLater(PlayerController::playMoveIfAI);
         }
     }
 }

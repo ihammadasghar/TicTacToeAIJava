@@ -4,9 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GridPanel extends JPanel {
-    public JButton[][] gridBtns = new JButton[GUI.state.gridSize][GUI.state.gridSize];
+    public JButton[][] gridBtns;
 
     public GridPanel(int n) {
+        gridBtns = new JButton[n][n];
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
         setLayout(new GridLayout(0, (n + 2), 10, 10));
@@ -33,7 +34,7 @@ public class GridPanel extends JPanel {
             idxLeft.setFont(GUI.gridSidesFont);
             add(idxLeft);
             for (int j = 0; j < n; j++) {
-                gridBtns[i][j] = new JButton(" "+" "+" ");
+                gridBtns[i][j] = new JButton(" " + " " + " ");
                 gridBtns[i][j].setFont(GUI.gridSymFont);
                 gridBtns[i][j].addActionListener(new GridBtnActionListener(i, j));
                 add(gridBtns[i][j]);
