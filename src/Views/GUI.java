@@ -53,12 +53,16 @@ public class GUI {
         setupFrame = new SetupFrame();
     }
 
-    public static void afterGame() {
-        gameOverFrame = new GameOverFrame();
-    }
+    public static void startGame(boolean recreatePlayers) {
+        Player[] players = state != null ? state.players : null;
+        if (recreatePlayers) {
+            players = PlayerController.getPlayerList(setupFrame.playersSetupPanel, playerSymbols);
+        } else {
+            for (Player p : players) {
+                p.currentGameScore = 0;
+            }
+        }
 
-    public static void startGame() {
-        Player[] players = PlayerController.getPlayerList(setupFrame.playersSetupPanel, playerSymbols);
         String gameType = "no type";
 
         for (int i = 0; i < gameTypeOptions.length; i++) {
@@ -67,6 +71,7 @@ public class GUI {
                 break;
             }
         }
+
         state = GameController.getGameState(gameType, setupFrame.sizePanel.winNum, setupFrame.sizePanel.gridSize, players);
 
         setupFrame.dispose();
@@ -77,11 +82,11 @@ public class GUI {
     public static void restartGame() {
         inPlayFrame.dispose();
         gameOverFrame.dispose();
-        startGame();
+        startGame(false);
     }
 
     public static void gameOver() {
-        afterGame();
+        gameOverFrame = new GameOverFrame();
     }
 
     public static void cancelGame() {
