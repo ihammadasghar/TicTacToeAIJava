@@ -7,6 +7,7 @@ public class GameOverFrame extends JFrame {
     public EndPanel endPanel;
     public RestartPanel restartPanel;
     public MessagePanel messagePanel;
+    public PlayerRecordsPanel playerRecordsPanel;
 
     public GameOverFrame() {
         super("Game Over");
@@ -15,6 +16,7 @@ public class GameOverFrame extends JFrame {
         JPanel buttons = new JPanel();
 
         messagePanel = new MessagePanel();
+        playerRecordsPanel = new PlayerRecordsPanel();
         endPanel = new EndPanel();
         restartPanel = new RestartPanel();
 
@@ -25,6 +27,7 @@ public class GameOverFrame extends JFrame {
         buttons.add(endPanel);
 
         main.add(messagePanel);
+        main.add(playerRecordsPanel);
         main.add(buttons);
         this.add(main);
 

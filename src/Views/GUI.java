@@ -27,7 +27,7 @@ public class GUI {
     public static final int FRAME_HEIGHT_SETUP = 800;
     public static final int FRAME_WIDTH_SETUP = 800;
 
-    public static final int FRAME_HEIGHT_GAMEOVER = 300;
+    public static final int FRAME_HEIGHT_GAMEOVER = 400;
     public static final int FRAME_WIDTH_GAMEOVER = 600;
     public static final String[] playerTypes = {"Human", "Smart AI", "AI"};
     public static final char[] playerSymbols = {'O', 'X', '$', 'I'};
