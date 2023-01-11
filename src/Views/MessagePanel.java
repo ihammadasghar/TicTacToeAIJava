@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class MessagePanel extends JPanel {
     public MessagePanel() {
-        this.setBorder(new EmptyBorder(50, 0, 0, 0));
+        this.setBorder(new EmptyBorder(25, 0, 0, 0));
 
         int bestScore = GUI.state.players[0].currentGameScore;
         GUI.state.players[0].losses++;
