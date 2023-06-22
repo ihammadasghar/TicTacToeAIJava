@@ -2,6 +2,9 @@
 Object oriented programming project.
 Create a tictactoe game with Java Swing 
 
+## Try it out
+To try it out, simply download/clone the project, navigate to TicTacToeJava/out/artifacts/TicTacToeAIJava.jar
+
 ## How to contribute
 - Pick a task from the taskboard and pass it to `TODO`
 - When you start working pass it to `In Progress` so other people don't work on the same task.
